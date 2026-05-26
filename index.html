@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Currículo web de Ueide Santos — Backend Developer .NET, arquitetura moderna, liderança técnica e IA aplicada." />
+  <meta name="author" content="Ueide Santos" />
+  <meta property="og:title" content="Ueide Santos | Currículo Web" />
+  <meta property="og:description" content="Backend Developer .NET com trajetória em arquitetura, liderança técnica, sistemas críticos e IA aplicada." />
+  <meta property="og:type" content="website" />
+  <title>Ueide Santos | Currículo Web</title>
+
+  <style>
+    :root {
+      --bg: #070b14;
+      --bg-2: #0b1020;
+      --surface: rgba(255, 255, 255, 0.06);
+      --surface-strong: rgba(255, 255, 255, 0.1);
+      --border: rgba(255, 255, 255, 0.12);
+      --border-strong: rgba(121, 255, 225, 0.28);
+      --text: #eef4ff;
+      --muted: #9aa9bf;
+      --muted-strong: #c7d2e2;
+      --brand: #79ffe1;
+      --brand-2: #8aa8ff;
+      --brand-3: #f4d06f;
+      --danger: #ff7a90;
+      --shadow: 0 26px 80px rgba(0, 0, 0, 0.38);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 16% 7%, rgba(121, 255, 225, 0.18), transparent 26%),
+        radial-gradient(circle at 88% 10%, rgba(138, 168, 255, 0.2), transparent 34%),
+        radial-gradient(circle at 50% 92%, rgba(244, 208, 111, 0.08), transparent 34%),
+        linear-gradient(135deg, #05070d 0%, var(--bg) 48%, var(--bg-2) 100%);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.75), transparent 76%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(7, 11, 20, 0.76);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .brand-mark span:first-child {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: #06101a;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      box-shadow: 0 12px 36px rgba(121, 255, 225, 0.18);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 86px 0 64px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding: 8px 12px;
+      border: 1px solid rgba(121, 255, 225, 0.28);
+      border-radius: 999px;
+      background: rgba(121, 255, 225, 0.065);
+      color: var(--brand);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand);
+      box-shadow: 0 0 0 7px rgba(121, 255, 225, 0.11);
+    }
+
+    h1 {
+      max-width: 860px;
+      margin-bottom: 26px;
+      font-size: clamp(2.65rem, 6.8vw, 5.55rem);
+      line-height: 0.92;
+      letter-spacing: -0.075em;
+    }
+
+    .gradient-text {
+      color: transparent;
+      background: linear-gradient(135deg, #ffffff, #b8c6ff 48%, #79ffe1 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .lead {
+      max-width: 760px;
+      color: var(--muted-strong);
+      font-size: clamp(1.06rem, 2vw, 1.26rem);
+      line-height: 1.78;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+      font-weight: 800;
+      font-size: 0.93rem;
+      transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.095);
+      border-color: rgba(121, 255, 225, 0.42);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+    }
+
+    .btn.primary {
+      border-color: transparent;
+      color: #06101a;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    }
+
+    .summary-card {
+      position: relative;
+      height: 100%;
+      padding: 28px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: linear-gradient(180deg, rgba(255,255,255,0.105), rgba(255,255,255,0.045));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .summary-card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: radial-gradient(circle at top left, rgba(121,255,225,0.28), transparent 35%);
+      pointer-events: none;
+    }
+
+    .summary-card > * {
+      position: relative;
+    }
+
+    .profile-title {
+      margin-bottom: 22px;
+    }
+
+    .profile-title h2 {
+      margin-bottom: 8px;
+      font-size: 1.75rem;
+      letter-spacing: -0.045em;
+    }
+
+    .profile-title p {
+      color: var(--muted);
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 22px 0;
+    }
+
+    .signal {
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .signal strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .signal span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 11px;
+      margin-top: 22px;
+      color: var(--muted-strong);
+      font-size: 0.96rem;
+    }
+
+    .contact-list a {
+      color: var(--text);
+      transition: color 0.2s ease;
+    }
+
+    .contact-list a:hover {
+      color: var(--brand);
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 28px;
+      margin-bottom: 30px;
+    }
+
+    .kicker {
+      margin-bottom: 10px;
+      color: var(--brand);
+      font-size: 0.76rem;
+      font-weight: 950;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h2.section-title {
+      max-width: 760px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+    }
+
+    .section-note {
+      max-width: 390px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .story-panel {
+      padding: 34px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.055);
+      box-shadow: 0 22px 70px rgba(0,0,0,0.24);
+    }
+
+    .story-panel p {
+      max-width: 960px;
+      color: var(--muted-strong);
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      line-height: 1.82;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .role {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 22px;
+      padding: 26px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .role:hover {
+      transform: translateY(-4px);
+      border-color: rgba(121, 255, 225, 0.28);
+      background: linear-gradient(180deg, rgba(255,255,255,0.105), rgba(255,255,255,0.05));
+    }
+
+    .role-meta {
+      border-right: 1px solid rgba(255,255,255,0.1);
+      padding-right: 22px;
+    }
+
+    .role-company {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      color: var(--brand);
+      background: rgba(121, 255, 225, 0.075);
+      border: 1px solid rgba(121, 255, 225, 0.18);
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .role-meta h3 {
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+      line-height: 1.18;
+      letter-spacing: -0.04em;
+    }
+
+    .period {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .role-body p {
+      color: var(--muted-strong);
+      margin-bottom: 16px;
+    }
+
+    .bullets {
+      display: grid;
+      gap: 9px;
+      margin-top: 14px;
+      list-style: none;
+    }
+
+    .bullets li {
+      position: relative;
+      padding-left: 24px;
+      color: var(--muted-strong);
+    }
+
+    .bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.74em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      transform: translateY(-50%);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.075);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted-strong);
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      padding: 30px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(121, 255, 225, 0.12), transparent 32%),
+        rgba(255, 255, 255, 0.052);
+      box-shadow: 0 22px 64px rgba(0,0,0,0.22);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(138, 168, 255, 0.34);
+    }
+
+    .card h3 {
+      margin-bottom: 14px;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+    }
+
+    .card p {
+      color: var(--muted-strong);
+      line-height: 1.72;
+    }
+
+    .card-link {
+      display: inline-flex;
+      margin-top: 20px;
+      padding: 12px 15px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-weight: 850;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .card-link:hover {
+      transform: translateX(2px);
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .skill-box {
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.055);
+    }
+
+    .skill-box h3 {
+      margin-bottom: 14px;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+    }
+
+    .skill-box p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .education-item {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.055);
+    }
+
+    .education-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .education-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .quote-section {
+      padding-bottom: 96px;
+    }
+
+    .quote-card {
+      padding: clamp(32px, 6vw, 58px);
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(121,255,225,0.18), transparent 36%),
+        radial-gradient(circle at 90% 30%, rgba(138,168,255,0.18), transparent 34%),
+        rgba(255,255,255,0.065);
+      box-shadow: var(--shadow);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    blockquote {
+      max-width: 920px;
+      margin: 0 auto 18px;
+      font-size: clamp(1.55rem, 4vw, 3.35rem);
+      line-height: 1.06;
+      letter-spacing: -0.065em;
+      font-weight: 900;
+    }
+
+    .quote-card p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted-strong);
+      font-size: 1.1rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      transition: color 0.2s ease;
+    }
+
+    footer a:hover {
+      color: var(--text);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media print {
+      .nav, .hero-actions, .btn, .card-link, footer, body::before {
+        display: none !important;
+      }
+
+      body {
+        background: #fff;
+        color: #111827;
+      }
+
+      .story-panel, .role, .card, .skill-box, .education-item, .quote-card, .summary-card {
+        box-shadow: none;
+        border-color: #d1d5db;
+        background: #fff;
+      }
+
+      .muted, .period, .section-note, p, li, span {
+        color: #374151 !important;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .grid-2, .skills-grid, .education-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .role {
+        grid-template-columns: 1fr;
+      }
+
+      .role-meta {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding-right: 0;
+        padding-bottom: 18px;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .shell {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .nav-inner {
+        padding: 18px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      h1 {
+        letter-spacing: -0.06em;
+      }
+
+      .signal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 54px 0;
+      }
+
+      .story-panel, .role, .card, .skill-box, .education-item, .summary-card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav" aria-label="Navegação principal">
+    <div class="shell nav-inner">
+      <a class="brand-mark" href="#top" aria-label="Voltar ao início">
+        <span>US</span>
+        <span>Ueide Santos</span>
+      </a>
+      <div class="nav-links">
+        <a href="#story">Resumo</a>
+        <a href="#experience">Experiência</a>
+        <a href="#projects">Projetos</a>
+        <a href="#skills">Competências</a>
+        <a href="#education">Formação</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="shell hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span class="pulse"></span> Backend Developer · .NET 10 · IA Aplicada</div>
+          <h1>Currículo web com trajetória, arquitetura e <span class="gradient-text">storytelling profissional.</span></h1>
+          <p class="lead">
+            Desenvolvedor Backend .NET com experiência em sistemas críticos para bancos, fintechs e saúde. Minha carreira combina engenharia de software, liderança técnica, arquitetura moderna e uma evolução intencional para IA aplicada com responsabilidade, guardrails e privacidade por design.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#experience">Ver trajetória →</a>
+            <a class="btn" href="assets/cv_ueide.santos_202605_v3.pdf" target="_blank" rel="noopener noreferrer">Baixar CV em PDF</a>
+            <a class="btn" href="https://www.linkedin.com/in/ueide-santos" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn" href="https://github.com/usjunior" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+
+        <aside class="summary-card reveal" aria-label="Resumo de Ueide Santos">
+          <div class="profile-title">
+            <h2>Ueide Santos</h2>
+            <p>Backend Developer | DotNet 10, Kafka, EDA, DDD, CQRS e pós-graduando em Engenharia de Software com IA.</p>
+          </div>
+          <div class="signal-grid">
+            <div class="signal">
+              <strong>.NET</strong>
+              <span>APIs, workers, arquitetura e backend moderno</span>
+            </div>
+            <div class="signal">
+              <strong>IA</strong>
+              <span>LLMOps, RAG, guardrails e IA responsável</span>
+            </div>
+            <div class="signal">
+              <strong>EDA</strong>
+              <span>Kafka, RabbitMQ, mensageria e sistemas distribuídos</span>
+            </div>
+            <div class="signal">
+              <strong>Lead</strong>
+              <span>experiência em coordenação e liderança técnica</span>
+            </div>
+          </div>
+          <div class="contact-list">
+            <span>📍 Osasco/SP · Brasil</span>
+            <span>✉️ <a href="mailto:usjunior@gmail.com">usjunior@gmail.com</a></span>
+            <span>🔗 <a href="https://www.linkedin.com/in/ueide-santos" target="_blank" rel="noopener noreferrer">linkedin.com/in/ueide-santos</a></span>
+            <span>💻 <a href="https://github.com/usjunior" target="_blank" rel="noopener noreferrer">github.com/usjunior</a></span>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="story">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Resumo profissional</p>
+            <h2 class="section-title">Uma carreira construída em ambientes de alta criticidade.</h2>
+          </div>
+          <p class="section-note">Uma leitura rápida para recrutadores, gestores e lideranças técnicas.</p>
+        </div>
+
+        <div class="story-panel reveal">
+          <p>
+            Minha trajetória nasceu na engenharia de software backend e amadureceu em ambientes onde estabilidade, segurança, integração e clareza arquitetural fazem diferença. Ao longo da carreira, atuei em setores como saúde, bancos e fintechs, evoluindo APIs, sistemas legados, integrações, mensageria e plataformas corporativas.
+          </p>
+          <br />
+          <p>
+            A experiência na Unimed FESP consolidou uma visão mais ampla: tecnologia como operação, governança, entrega, indicadores, arquitetura e impacto no negócio. Nos últimos anos, aprofundei minha atuação em .NET, arquitetura hexagonal, microsserviços, Kafka, RabbitMQ, cloud e padrões de design aplicados a sistemas críticos.
+          </p>
+          <br />
+          <p>
+            Hoje, minha evolução está direcionada para IA aplicada. Estou cursando pós-graduação em Engenharia de Software com IA e desenvolvendo projetos que unem backend moderno, IA generativa, guardrails, observabilidade, LGPD, privacidade por design e responsabilidade técnica.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Experiência profissional</p>
+            <h2 class="section-title">De sistemas corporativos a plataformas financeiras críticas.</h2>
+          </div>
+          <p class="section-note">Experiências organizadas em narrativa, não apenas em cargos.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="role reveal">
+            <div class="role-meta">
+              <span class="role-company">GFT · Banco BMG</span>
+              <h3>Engenheiro de Software Backend .NET Core</h3>
+              <p class="period">Set 2024 – Jun 2026</p>
+            </div>
+            <div class="role-body">
+              <p>
+                Atuação na modernização da esteira de pagamentos de um grande banco, contribuindo para escalabilidade, resiliência, desacoplamento de processos críticos e integração entre múltiplos sistemas.
+              </p>
+              <ul class="bullets">
+                <li>Evolução de APIs REST em .NET 10.</li>
+                <li>Integração assíncrona via Kafka, RabbitMQ e AWS MSK.</li>
+                <li>Uso de arquitetura hexagonal para isolamento de domínio.</li>
+                <li>Suporte a fluxos orquestrados com Camunda.</li>
+                <li>Liderança técnica na concepção do Worker de Recálculo de Valores para Empréstimos.</li>
+                <li>Aplicação de SOLID e patterns como Strategy, Abstract Factory, Factory Method, Template Method e Specification.</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">.NET 10</span><span class="tag">Kafka</span><span class="tag">RabbitMQ</span><span class="tag">MSK</span><span class="tag">MongoDB</span><span class="tag">Oracle</span><span class="tag">Redis</span><span class="tag">Camunda</span><span class="tag">Arquitetura Hexagonal</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="role reveal">
+            <div class="role-meta">
+              <span class="role-company">Verity · InterPlayers</span>
+              <h3>Engenheiro de Software Backend .NET Core</h3>
+              <p class="period">Jul 2021 – Jun 2024</p>
+            </div>
+            <div class="role-body">
+              <p>
+                Atuação na evolução do backend do aplicativo Healthy, suportando jornadas de onboarding, e-commerce e billing, com impacto direto na experiência do usuário e no negócio.
+              </p>
+              <ul class="bullets">
+                <li>Desenvolvimento e manutenção de APIs REST.</li>
+                <li>Evolução de arquitetura para maior escalabilidade.</li>
+                <li>Integração com serviços Azure e pipelines de dados.</li>
+                <li>Implementação de testes unitários para aumento de confiabilidade.</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">C#</span><span class="tag">.NET 8</span><span class="tag">SQL Server</span><span class="tag">Redis</span><span class="tag">RabbitMQ</span><span class="tag">Azure</span><span class="tag">Azure Data Factory</span><span class="tag">xUnit</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="role reveal">
+            <div class="role-meta">
+              <span class="role-company">Altran · BTG Pactual</span>
+              <h3>Engenheiro de Software Backend .NET Core</h3>
+              <p class="period">Nov 2020 – Jul 2021</p>
+            </div>
+            <div class="role-body">
+              <p>
+                Experiência em ambiente financeiro, atuando com backend .NET em contexto de alta exigência técnica, integração e qualidade de entrega.
+              </p>
+              <div class="tags">
+                <span class="tag">Backend</span><span class="tag">.NET Core</span><span class="tag">Financeiro</span><span class="tag">APIs</span><span class="tag">Integrações</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="role reveal">
+            <div class="role-meta">
+              <span class="role-company">Repom · Edenred Brasil</span>
+              <h3>Desenvolvedor Backend</h3>
+              <p class="period">Mar 2020 – Nov 2020</p>
+            </div>
+            <div class="role-body">
+              <p>
+                Desenvolvimento e análise de sistemas com plataforma Microsoft, APIs, mensageria e infraestrutura moderna para aplicações corporativas.
+              </p>
+              <div class="tags">
+                <span class="tag">ASP.NET Core</span><span class="tag">Web API</span><span class="tag">C#</span><span class="tag">SQL Server</span><span class="tag">RabbitMQ</span><span class="tag">Kubernetes</span><span class="tag">Azure</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="role reveal">
+            <div class="role-meta">
+              <span class="role-company">Unimed FESP</span>
+              <h3>Analista Sr. · Líder Técnico</h3>
+              <p class="period">Set 2007 – Jan 2018</p>
+            </div>
+            <div class="role-body">
+              <p>
+                Uma das fases mais formadoras da carreira: liderança técnica, arquitetura corporativa, governança de processos, sustentação de sistemas críticos e alinhamento entre tecnologia e negócio no setor de saúde suplementar.
+              </p>
+              <ul class="bullets">
+                <li>Liderança técnica e referência estratégica para equipes de Negócios de TI, QA e Desenvolvimento.</li>
+                <li>Definição, implantação e governança de processos apoiados por RUP, PMBOK, ITIL, COBIT, SCRUM, Lean IT e DevOps.</li>
+                <li>Acompanhamento de indicadores financeiros, métricas de produtividade e KPIs de sistemas críticos.</li>
+                <li>Definição de arquitetura corporativa orientada a serviços.</li>
+                <li>Atuação em sistemas regulados pelo padrão TISS da ANS.</li>
+                <li>Participação em soluções comercializadas para outras Unimeds, como o Consultório Online.</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Liderança Técnica</span><span class="tag">SOA</span><span class="tag">Governança</span><span class="tag">Saúde</span><span class="tag">TISS</span><span class="tag">WCF</span><span class="tag">SQL Server</span><span class="tag">SharePoint</span><span class="tag">Azure DevOps</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="role reveal">
+            <div class="role-meta">
+              <span class="role-company">Primeira base técnica</span>
+              <h3>Sage Brasil · Dotz Marketing · Rapp Collins</h3>
+              <p class="period">1999 – 2007</p>
+            </div>
+            <div class="role-body">
+              <p>
+                Construção da base prática em desenvolvimento web e plataforma Microsoft, com C#, VB.NET, ASP.NET, ADO.NET e SQL Server. Essa fase consolidou disciplina técnica, raciocínio de manutenção e evolução de sistemas corporativos.
+              </p>
+              <div class="tags">
+                <span class="tag">C#</span><span class="tag">VB.NET</span><span class="tag">ASP.NET</span><span class="tag">ADO.NET</span><span class="tag">SQL Server</span><span class="tag">Web Systems</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Projeto em destaque</p>
+            <h2 class="section-title">IA aplicada com responsabilidade técnica.</h2>
+          </div>
+          <p class="section-note">Projeto educacional desenvolvido durante a pós-graduação em Engenharia de Software com IA.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card reveal">
+            <p class="kicker">Neuro Care</p>
+            <h3>Cognitive Report Generator for Consultation</h3>
+            <p>
+              Laboratório educacional de IA generativa aplicada à saúde digital. O projeto simula a organização de relatos cognitivos, funcionais e comportamentais em um relatório não diagnóstico para conversa com profissional de saúde.
+            </p>
+            <ul class="bullets">
+              <li>Aplica regras determinísticas para classificação de prioridade de atenção.</li>
+              <li>Mantém a IA fora da decisão clínica.</li>
+              <li>Explora guardrails, LGPD, CFM, auditoria, observabilidade, structured output, RAG e human-in-the-loop.</li>
+            </ul>
+            <a class="card-link" href="https://ueidesantos.github.io/neurocare-ai-lab" target="_blank" rel="noopener noreferrer">Acessar landing page →</a>
+          </article>
+
+          <article class="card reveal">
+            <p class="kicker">Princípio do projeto</p>
+            <h3>IA como apoio, não como autoridade clínica.</h3>
+            <p>
+              O Neuro Care não diagnostica, não calcula risco individual, não recomenda tratamento, não prescreve exames e não substitui avaliação médica. O foco está em arquitetura, aprendizado e responsabilidade tecnológica.
+            </p>
+            <div class="tags">
+              <span class="tag">.NET 10</span><span class="tag">Clean Architecture</span><span class="tag">DDD</span><span class="tag">RAG</span><span class="tag">Guardrails</span><span class="tag">Human-in-the-loop</span><span class="tag">LGPD</span>
+            </div>
+            <a class="card-link" href="https://github.com/ueidesantos/neurocare-ai-lab" target="_blank" rel="noopener noreferrer">Ver repositório técnico →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Competências técnicas</p>
+            <h2 class="section-title">Stack backend, arquitetura e IA aplicada.</h2>
+          </div>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-box reveal">
+            <h3>Backend</h3>
+            <p>C#, .NET 4.x, .NET Core, .NET 8, .NET 10, ASP.NET Core, Web API, workers e APIs REST.</p>
+          </div>
+          <div class="skill-box reveal">
+            <h3>Arquitetura</h3>
+            <p>Arquitetura em camadas, arquitetura hexagonal, DDD, SOLID, microsserviços, CQRS e EDA.</p>
+          </div>
+          <div class="skill-box reveal">
+            <h3>Mensageria</h3>
+            <p>Kafka, RabbitMQ, AWS MSK, MSMQ, integração assíncrona e desacoplamento de processos críticos.</p>
+          </div>
+          <div class="skill-box reveal">
+            <h3>Cloud & Dados</h3>
+            <p>Azure, AWS, SQL Server, Oracle, MongoDB, DynamoDB, MySQL, Redis, S3 e Azure Data Factory.</p>
+          </div>
+          <div class="skill-box reveal">
+            <h3>DevOps & Qualidade</h3>
+            <p>CI/CD, Azure DevOps, testes unitários com xUnit, governança, observabilidade e métricas.</p>
+          </div>
+          <div class="skill-box reveal">
+            <h3>IA aplicada</h3>
+            <p>LLMOps, RAG, IA generativa, guardrails, privacidade por design, responsible AI e human-in-the-loop.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Formação acadêmica</p>
+            <h2 class="section-title">Formação técnica contínua, da base à IA.</h2>
+          </div>
+        </div>
+
+        <div class="education-grid">
+          <div class="education-item reveal">
+            <strong>UNIPDS</strong>
+            <span>Pós-graduação em Engenharia de Software com IA · 2026–2027</span>
+          </div>
+          <div class="education-item reveal">
+            <strong>IBTA</strong>
+            <span>Pós-graduação em Engenharia de Software (SOA) · 2008–2009</span>
+          </div>
+          <div class="education-item reveal">
+            <strong>FIAP</strong>
+            <span>Graduação em Sistemas de Informação · 2001–2004</span>
+          </div>
+          <div class="education-item reveal">
+            <strong>Colégio Padre Anchieta</strong>
+            <span>Técnico em Processamento de Dados · 1998–2000</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section">
+      <div class="shell">
+        <div class="quote-card reveal">
+          <blockquote>“He who would learn to fly one day must first learn to stand and walk.”</blockquote>
+          <p>Friedrich Nietzsche</p>
+          <div class="hero-actions" style="justify-content: center;">
+            <a class="btn primary" href="assets/cv_ueide.santos_202605_v3.pdf" target="_blank" rel="noopener noreferrer">Baixar CV em PDF</a>
+            <a class="btn" href="https://www.linkedin.com/in/ueide-santos" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn" href="https://github.com/usjunior" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <span>© <span id="year"></span> Ueide Santos</span>
+      <span><a href="mailto:usjunior@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/ueide-santos" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="https://github.com/usjunior" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="assets/cv_ueide.santos_202605_v3.pdf" target="_blank" rel="noopener noreferrer">PDF</a></span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  </script>
+</body>
+</html>
