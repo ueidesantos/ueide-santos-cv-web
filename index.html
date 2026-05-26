@@ -621,6 +621,77 @@
       transform: translateY(0);
     }
 
+    .courses-board {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.055);
+      box-shadow: 0 22px 70px rgba(0,0,0,0.22);
+      overflow: hidden;
+    }
+
+    .courses-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 20px 22px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      background: linear-gradient(135deg, rgba(121,255,225,0.08), rgba(138,168,255,0.055));
+    }
+
+    .courses-toolbar strong {
+      font-size: 1.05rem;
+      letter-spacing: -0.03em;
+    }
+
+    .courses-toolbar span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .course-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .course-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .course-item:nth-child(2n) {
+      border-right: 0;
+    }
+
+    .course-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text);
+      font-size: 0.98rem;
+      line-height: 1.35;
+    }
+
+    .course-item span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .course-badge {
+      align-self: start;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--brand);
+      background: rgba(121,255,225,0.075);
+      border: 1px solid rgba(121,255,225,0.18);
+      font-size: 0.74rem;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
     @media print {
       .nav, .hero-actions, .btn, .card-link, footer, body::before {
         display: none !important;
@@ -713,6 +784,7 @@
         <a href="#projects">Projetos</a>
         <a href="#skills">Competências</a>
         <a href="#education">Formação</a>
+        <a href="#courses">Cursos</a>
       </div>
     </div>
   </nav>
@@ -1028,6 +1100,46 @@
           <div class="education-item reveal">
             <strong>Colégio Padre Anchieta</strong>
             <span>Técnico em Processamento de Dados · 1998–2000</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="courses">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Cursos extracurriculares</p>
+            <h2 class="section-title">Aprendizado contínuo em engenharia, arquitetura, liderança e gestão.</h2>
+          </div>
+          <p class="section-note">Cursos complementares que reforçam minha base técnica, visão de arquitetura, governança e comunicação profissional.</p>
+        </div>
+
+        <div class="courses-board reveal">
+          <div class="courses-toolbar">
+            <strong>Formação complementar</strong>
+            <span>18 cursos listados no CV</span>
+          </div>
+
+          <div class="course-list">
+            <div class="course-item"><div><strong>Desenvolvimento SPA com Angular</strong><span>Desenvolvedor.io</span></div><span class="course-badge">Front-end</span></div>
+            <div class="course-item"><div><strong>C# Entrada e saída (I/O) com streams</strong><span>Alura</span></div><span class="course-badge">C#</span></div>
+            <div class="course-item"><div><strong>C# Técnicas de refatoração de código</strong><span>Alura</span></div><span class="course-badge">Clean Code</span></div>
+            <div class="course-item"><div><strong>C# Collections: listas, arrays, listas ligadas, dicionários e filas</strong><span>Alura</span></div><span class="course-badge">C#</span></div>
+            <div class="course-item"><div><strong>TOGAF Foundation — nível 1</strong><span>FIAP</span></div><span class="course-badge">Arquitetura</span></div>
+            <div class="course-item"><div><strong>Planejamento e Gestão de Budget de TI</strong><span>eBusiness</span></div><span class="course-badge">Gestão</span></div>
+            <div class="course-item"><div><strong>Métricas e Indicadores de TI</strong><span>eBusiness</span></div><span class="course-badge">Governança</span></div>
+            <div class="course-item"><div><strong>Professional Scrum</strong><span>Lambda3</span></div><span class="course-badge">Agile</span></div>
+            <div class="course-item"><div><strong>Professional Scrum Master</strong><span>Lambda3</span></div><span class="course-badge">Agile</span></div>
+            <div class="course-item"><div><strong>ALM Essential</strong><span>Lambda3</span></div><span class="course-badge">DevOps</span></div>
+            <div class="course-item"><div><strong>Contabilidade para não contadores</strong><span>Paideia Educação · IDORT</span></div><span class="course-badge">Negócio</span></div>
+            <div class="course-item"><div><strong>Comunicação e Oratória</strong><span>OpenDreams</span></div><span class="course-badge">Comunicação</span></div>
+            <div class="course-item"><div><strong>Windows Communication Foundation (WCF)</strong><span>Brás Figueiredo</span></div><span class="course-badge">.NET</span></div>
+            <div class="course-item"><div><strong>Arquitetura da Informação em Projetos WEB</strong><span>Jump Education</span></div><span class="course-badge">Web</span></div>
+            <div class="course-item"><div><strong>Negociação</strong><span>IDORT</span></div><span class="course-badge">Soft Skill</span></div>
+            <div class="course-item"><div><strong>Advanced Distributed Application Development</strong><span>Brás Figueiredo</span></div><span class="course-badge">Distribuído</span></div>
+            <div class="course-item"><div><strong>Microsoft Solution Architectures</strong><span>Brás Figueiredo</span></div><span class="course-badge">Arquitetura</span></div>
+            <div class="course-item"><div><strong>Liderança Pessoal</strong><span>OpenDreams</span></div><span class="course-badge">Liderança</span></div>
           </div>
         </div>
       </div>
