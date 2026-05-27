@@ -1,1558 +1,1580 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Currículo web de Ueide Santos — Backend Developer .NET, arquitetura moderna, liderança técnica e IA aplicada." />
-  <meta name="author" content="Ueide Santos" />
-  <meta property="og:title" content="Ueide Santos | Currículo Web" />
-  <meta property="og:description" content="Backend Developer .NET com trajetória em arquitetura, liderança técnica, sistemas críticos e IA aplicada." />
-  <meta property="og:type" content="website" />
-  <title>Ueide Santos | Currículo Web</title>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4HSYYNE5F"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-R4HSYYNE5F');
-  </script>
-
-  <style>
-    :root {
-      --bg: #070b14;
-      --bg-2: #0b1020;
-      --surface: rgba(255, 255, 255, 0.06);
-      --surface-strong: rgba(255, 255, 255, 0.1);
-      --border: rgba(255, 255, 255, 0.12);
-      --border-strong: rgba(121, 255, 225, 0.28);
-      --text: #eef4ff;
-      --muted: #9aa9bf;
-      --muted-strong: #c7d2e2;
-      --brand: #79ffe1;
-      --brand-2: #8aa8ff;
-      --brand-3: #ff9f43;
-      --warm: #ff8a3d;
-      --warm-soft: rgba(255, 138, 61, 0.13);
-      --warm-line: rgba(255, 138, 61, 0.28);
-      --danger: #ff7a90;
-      --shadow: 0 26px 80px rgba(0, 0, 0, 0.38);
-      --radius-xl: 30px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
-      --max: 1180px;
-      --font-code: "Cascadia Code", "Fira Code", "JetBrains Mono", Consolas, monospace;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 16% 7%, rgba(121, 255, 225, 0.18), transparent 26%),
-        radial-gradient(circle at 88% 10%, rgba(138, 168, 255, 0.2), transparent 34%),
-        radial-gradient(circle at 50% 92%, rgba(255, 138, 61, 0.1), transparent 34%),
-        linear-gradient(135deg, #05070d 0%, var(--bg) 48%, var(--bg-2) 100%);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-        linear-gradient(rgba(255, 138, 61, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 138, 61, 0.035) 1px, transparent 1px);
-      background-size: 54px 54px, 54px 54px, 216px 216px, 216px 216px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.76), transparent 78%);
-    }
-
-    body::after {
-      content: "{ }  async  event-driven  .NET  Kafka  RAG  DDD  CQRS  LLMOps";
-      position: fixed;
-      right: -180px;
-      bottom: 12%;
-      z-index: -1;
-      color: rgba(255, 255, 255, 0.035);
-      font-family: var(--font-code);
-      font-size: clamp(2.6rem, 8vw, 7rem);
-      font-weight: 800;
-      letter-spacing: -0.08em;
-      white-space: nowrap;
-      transform: rotate(-7deg);
-      pointer-events: none;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .shell {
-      width: min(var(--max), calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 60;
-      background: rgba(7, 11, 20, 0.76);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .nav-inner {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-    }
-
-    .brand-mark {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      white-space: nowrap;
-    }
-
-    .brand-mark span:first-child {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      color: #06101a;
-      background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      box-shadow: 0 12px 36px rgba(255, 138, 61, 0.16);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 0.9rem;
-      white-space: nowrap;
-    }
-
-    .nav-links a {
-      transition: color 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .hero {
-      padding: 86px 0 64px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      gap: 34px;
-      align-items: stretch;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 22px;
-      padding: 8px 12px;
-      border: 1px solid rgba(121, 255, 225, 0.28);
-      border-radius: 999px;
-      background: rgba(121, 255, 225, 0.065);
-      color: var(--warm);
-      font-size: 0.78rem;
-      font-weight: 900;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-    }
-
-    .pulse {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--brand);
-      box-shadow: 0 0 0 7px rgba(121, 255, 225, 0.11);
-    }
-
-    h1 {
-      max-width: 860px;
-      margin-bottom: 26px;
-      font-size: clamp(2.65rem, 6.8vw, 5.55rem);
-      line-height: 0.92;
-      letter-spacing: -0.075em;
-    }
-
-    .gradient-text {
-      color: transparent;
-      background: linear-gradient(135deg, #ffffff, #b8c6ff 48%, #79ffe1 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-    }
-
-    .lead {
-      max-width: 760px;
-      color: var(--muted-strong);
-      font-size: clamp(1.06rem, 2vw, 1.26rem);
-      line-height: 1.78;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
-    }
-
-    .btn {
-      min-height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 0 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.06);
-      font-weight: 800;
-      font-size: 0.93rem;
-      transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.095);
-      border-color: rgba(121, 255, 225, 0.42);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
-    }
-
-    .btn.primary {
-      border-color: transparent;
-      color: #06101a;
-      background: linear-gradient(135deg, var(--brand), var(--brand-2));
-    }
-
-    .summary-card {
-      position: relative;
-      height: 100%;
-      padding: 28px;
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: linear-gradient(180deg, rgba(255,255,255,0.105), rgba(255,255,255,0.045));
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .summary-card::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      background: radial-gradient(circle at top left, rgba(121,255,225,0.28), transparent 35%);
-      pointer-events: none;
-    }
-
-    .summary-card > * {
-      position: relative;
-    }
-
-    .executive-card {
-      padding: 18px;
-    }
-
-    .photo-stage {
-      position: relative;
-      min-height: 520px;
-      border-radius: 26px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background:
-        radial-gradient(circle at 30% 12%, rgba(121, 255, 225, 0.14), transparent 32%),
-        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
-      isolation: isolate;
-    }
-
-    .executive-photo {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      filter: saturate(0.96) contrast(1.03);
-      transform: scale(1.015);
-    }
-
-    .photo-stage::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background:
-        linear-gradient(180deg, rgba(7,11,20,0.02) 0%, rgba(7,11,20,0.06) 42%, rgba(7,11,20,0.92) 100%),
-        radial-gradient(circle at 18% 10%, rgba(121,255,225,0.18), transparent 38%),
-        radial-gradient(circle at 84% 18%, rgba(138,168,255,0.18), transparent 38%);
-      pointer-events: none;
-    }
-
-    .photo-stage::after {
-      content: "";
-      position: absolute;
-      inset: 18px;
-      z-index: 2;
-      border-radius: 22px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      pointer-events: none;
-    }
-
-    .photo-glow {
-      position: absolute;
-      inset: auto -20% -28% -20%;
-      height: 210px;
-      z-index: 2;
-      background: radial-gradient(circle, rgba(121,255,225,0.18), transparent 68%);
-      filter: blur(10px);
-      pointer-events: none;
-    }
-
-    .photo-caption {
-      position: absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 18px;
-      z-index: 3;
-      padding: 18px;
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(7, 11, 20, 0.58);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 18px 50px rgba(0,0,0,0.28);
-    }
-
-    .photo-caption span {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--warm);
-      font-size: 0.72rem;
-      font-weight: 950;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .photo-caption strong {
-      display: block;
-      color: var(--text);
-      font-size: clamp(1rem, 2vw, 1.18rem);
-      line-height: 1.28;
-      letter-spacing: -0.035em;
-    }
-
-    .executive-title {
-      margin: 22px 10px 18px;
-    }
-
-    .executive-signals {
-      margin: 18px 10px 22px;
-    }
-
-    .profile-title {
-      margin-bottom: 22px;
-    }
-
-    .profile-title h2 {
-      margin-bottom: 8px;
-      font-size: 1.75rem;
-      letter-spacing: -0.045em;
-    }
-
-    .profile-title p {
-      color: var(--muted);
-    }
-
-    .signal-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin: 22px 0;
-    }
-
-    .signal {
-      padding: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .signal strong {
-      display: block;
-      margin-bottom: 5px;
-      font-size: 1.35rem;
-      line-height: 1;
-    }
-
-    .signal span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.82rem;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 11px;
-      margin-top: 22px;
-      color: var(--muted-strong);
-      font-size: 0.96rem;
-    }
-
-    .contact-list a {
-      color: var(--text);
-      transition: color 0.2s ease;
-    }
-
-    .contact-list a:hover {
-      color: var(--warm);
-    }
-
-    section {
-      padding: 70px 0;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 28px;
-      margin-bottom: 30px;
-    }
-
-    .kicker {
-      margin-bottom: 10px;
-      color: var(--warm);
-      font-size: 0.76rem;
-      font-weight: 950;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    h2.section-title {
-      max-width: 760px;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.02;
-      letter-spacing: -0.055em;
-    }
-
-    .section-note {
-      max-width: 390px;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .story-panel {
-      padding: 34px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      background: rgba(255, 255, 255, 0.055);
-      box-shadow: 0 22px 70px rgba(0,0,0,0.24);
-    }
-
-    .story-panel p {
-      max-width: 960px;
-      color: var(--muted-strong);
-      font-size: clamp(1.05rem, 2vw, 1.2rem);
-      line-height: 1.82;
-    }
-
-    .timeline {
-      position: relative;
-      display: grid;
-      gap: 18px;
-    }
-
-    .role {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 22px;
-      padding: 26px;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius-xl);
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-    }
-
-    .role:hover {
-      transform: translateY(-4px);
-      border-color: rgba(121, 255, 225, 0.28);
-      background: linear-gradient(180deg, rgba(255,255,255,0.105), rgba(255,255,255,0.05));
-    }
-
-    .role-meta {
-      border-right: 1px solid rgba(255,255,255,0.1);
-      padding-right: 22px;
-    }
-
-    .role-company {
-      display: inline-flex;
-      margin-bottom: 12px;
-      padding: 8px 11px;
-      border-radius: 999px;
-      color: var(--warm);
-      background: rgba(255, 138, 61, 0.075);
-      border: 1px solid rgba(255, 138, 61, 0.2);
-      font-family: var(--font-code);
-      font-size: 0.75rem;
-      font-weight: 900;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-
-    .role-meta h3 {
-      margin-bottom: 8px;
-      font-size: 1.25rem;
-      line-height: 1.18;
-      letter-spacing: -0.04em;
-    }
-
-    .period {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .role-body p {
-      color: var(--muted-strong);
-      margin-bottom: 16px;
-    }
-
-    .bullets {
-      display: grid;
-      gap: 9px;
-      margin-top: 14px;
-      list-style: none;
-    }
-
-    .bullets li {
-      position: relative;
-      padding-left: 24px;
-      color: var(--muted-strong);
-    }
-
-    .bullets li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.74em;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      transform: translateY(-50%);
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .tag {
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.075);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--muted-strong);
-      font-family: var(--font-code);
-      font-size: 0.76rem;
-      font-weight: 750;
-    }
-
-    .tag::before {
-      content: "#";
-      color: var(--warm);
-      margin-right: 2px;
-      opacity: 0.9;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      padding: 30px;
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(255, 255, 255, 0.13);
-      background:
-        radial-gradient(circle at 20% 0%, rgba(121, 255, 225, 0.12), transparent 32%),
-        rgba(255, 255, 255, 0.052);
-      box-shadow: 0 22px 64px rgba(0,0,0,0.22);
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(138, 168, 255, 0.34);
-    }
-
-    .card h3 {
-      margin-bottom: 14px;
-      font-size: clamp(1.45rem, 3vw, 2rem);
-      line-height: 1.08;
-      letter-spacing: -0.05em;
-    }
-
-    .card p {
-      color: var(--muted-strong);
-      line-height: 1.72;
-    }
-
-    .card-link {
-      display: inline-flex;
-      margin-top: 20px;
-      padding: 12px 15px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.09);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      font-weight: 850;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .card-link:hover {
-      transform: translateX(2px);
-      background: rgba(255, 255, 255, 0.14);
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .skill-box {
-      padding: 24px;
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.055);
-    }
-
-    .skill-box h3 {
-      margin-bottom: 14px;
-      font-size: 1.15rem;
-      letter-spacing: -0.03em;
-    }
-
-    .skill-box p {
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .education-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .education-item {
-      padding: 22px;
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.055);
-    }
-
-    .education-item strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--text);
-    }
-
-    .education-item span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .quote-section {
-      padding-bottom: 96px;
-    }
-
-    .quote-card {
-      padding: clamp(32px, 6vw, 58px);
-      border-radius: 34px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background:
-        radial-gradient(circle at 18% 0%, rgba(121,255,225,0.18), transparent 36%),
-        radial-gradient(circle at 90% 30%, rgba(138,168,255,0.18), transparent 34%),
-        rgba(255,255,255,0.065);
-      box-shadow: var(--shadow);
-      text-align: center;
-      overflow: hidden;
-    }
-
-    blockquote {
-      max-width: 920px;
-      margin: 0 auto 18px;
-      font-size: clamp(1.55rem, 4vw, 3.35rem);
-      line-height: 1.06;
-      letter-spacing: -0.065em;
-      font-weight: 900;
-    }
-
-    .quote-card p {
-      max-width: 760px;
-      margin: 0 auto;
-      color: var(--muted-strong);
-      font-size: 1.1rem;
-    }
-
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 28px 0;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    footer a {
-      transition: color 0.2s ease;
-    }
-
-    footer a:hover {
-      color: var(--text);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .courses-board {
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.055);
-      box-shadow: 0 22px 70px rgba(0,0,0,0.22);
-      overflow: hidden;
-    }
-
-    .courses-toolbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 20px 22px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      background: linear-gradient(135deg, rgba(121,255,225,0.08), rgba(138,168,255,0.055));
-    }
-
-    .courses-toolbar strong {
-      font-size: 1.05rem;
-      letter-spacing: -0.03em;
-    }
-
-    .courses-toolbar span {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .course-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .course-item {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 16px;
-      padding: 18px 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      border-right: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .course-item:nth-child(2n) {
-      border-right: 0;
-    }
-
-    .course-item strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--text);
-      font-size: 0.98rem;
-      line-height: 1.35;
-    }
-
-    .course-item span {
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .course-badge {
-      align-self: start;
-      padding: 7px 10px;
-      border-radius: 999px;
-      color: var(--warm);
-      background: rgba(255,138,61,0.075);
-      border: 1px solid rgba(255,138,61,0.18);
-      font-family: var(--font-code);
-      font-size: 0.72rem;
-      font-weight: 850;
-      white-space: nowrap;
-    }
-
-    .terminal-strip {
-      width: fit-content;
-      max-width: 100%;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin: -6px 0 24px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(5, 7, 13, 0.56);
-      box-shadow: 0 18px 60px rgba(0,0,0,0.22);
-      backdrop-filter: blur(14px);
-      overflow: hidden;
-    }
-
-    .terminal-strip code {
-      color: var(--muted-strong);
-      font-family: var(--font-code);
-      font-size: 0.82rem;
-      white-space: nowrap;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex: 0 0 auto;
-      opacity: 0.9;
-    }
-
-    .dot.red { background: #ff5f57; }
-    .dot.yellow { background: #ffbd2e; }
-    .dot.green { background: #28c840; }
-
-    .code-status {
-      display: inline-flex;
-      margin-top: 12px;
-      padding: 8px 10px;
-      border-radius: 10px;
-      border: 1px solid rgba(121, 255, 225, 0.18);
-      background: rgba(16, 185, 129, 0.075);
-      color: var(--brand);
-      font-family: var(--font-code);
-      font-size: 0.78rem;
-      box-shadow: 0 0 30px rgba(121,255,225,0.06);
-    }
-
-    .icon-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .link-icon {
-      width: 17px;
-      height: 17px;
-      flex: 0 0 auto;
-    }
-
-    .link-icon.linkedin {
-      color: #8aa8ff;
-    }
-
-    .link-icon.github {
-      color: var(--warm);
-    }
-
-    .signature-line {
-      display: inline-flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      margin-top: 24px;
-      padding: 12px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--warm-line);
-      background: linear-gradient(135deg, rgba(255,138,61,0.105), rgba(121,255,225,0.045));
-      color: var(--muted-strong);
-      font-size: 0.86rem;
-      font-weight: 800;
-      box-shadow: 0 16px 50px rgba(255, 138, 61, 0.08);
-    }
-
-    .signature-line i {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--warm);
-      box-shadow: 0 0 0 5px rgba(255, 138, 61, 0.08);
-    }
-
-    .executive-card {
-      border-color: rgba(255, 138, 61, 0.18);
-    }
-
-    .photo-stage {
-      background:
-        radial-gradient(circle at 30% 12%, rgba(121, 255, 225, 0.14), transparent 32%),
-        radial-gradient(circle at 90% 8%, rgba(255, 138, 61, 0.12), transparent 26%),
-        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
-    }
-
-    .photo-stage::before {
-      background:
-        linear-gradient(180deg, rgba(7,11,20,0.02) 0%, rgba(7,11,20,0.06) 42%, rgba(7,11,20,0.92) 100%),
-        radial-gradient(circle at 18% 10%, rgba(121,255,225,0.18), transparent 38%),
-        radial-gradient(circle at 88% 18%, rgba(255,138,61,0.16), transparent 34%),
-        radial-gradient(circle at 84% 18%, rgba(138,168,255,0.16), transparent 38%);
-    }
-
-    .photo-stage::after {
-      box-shadow: inset 0 0 0 1px rgba(255, 138, 61, 0.08);
-    }
-
-    .photo-glow {
-      background: radial-gradient(circle, rgba(255,138,61,0.2), transparent 68%);
-    }
-
-    .photo-caption span {
-      color: var(--warm);
-    }
-
-    .compass-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 18px;
-    }
-
-    .compass-card {
-      position: relative;
-      padding: 24px;
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255,255,255,0.11);
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
-      overflow: hidden;
-    }
-
-    .compass-card::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(180deg, var(--warm), transparent);
-    }
-
-    .compass-card span {
-      display: inline-flex;
-      margin-bottom: 18px;
-      width: 36px;
-      height: 36px;
-      align-items: center;
-      justify-content: center;
-      border-radius: 14px;
-      color: #130904;
-      background: linear-gradient(135deg, var(--warm), var(--brand-3));
-      font-weight: 950;
-      box-shadow: 0 14px 36px rgba(255, 138, 61, 0.16);
-    }
-
-    .compass-card strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 1.1rem;
-      letter-spacing: -0.035em;
-    }
-
-    .compass-card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 980px) {
-      .compass-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media print {
-      .nav, .hero-actions, .btn, .card-link, footer, body::before {
-        display: none !important;
-      }
-
-      body {
-        background: #fff;
-        color: #111827;
-      }
-
-      .story-panel, .role, .card, .skill-box, .education-item, .quote-card, .summary-card {
-        box-shadow: none;
-        border-color: #d1d5db;
-        background: #fff;
-      }
-
-      .muted, .period, .section-note, p, li, span {
-        color: #374151 !important;
-      }
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid, .grid-2, .skills-grid, .education-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .role {
-        grid-template-columns: 1fr;
-      }
-
-      .role-meta {
-        border-right: 0;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-        padding-right: 0;
-        padding-bottom: 18px;
-      }
-
-      .section-head {
-        flex-direction: column;
-        align-items: start;
-      }
-    }
-
-    @media (max-width: 680px) {
-      .photo-stage {
-        min-height: 520px;
-      }
-
-      .photo-caption {
-        left: 14px;
-        right: 14px;
-        bottom: 14px;
-      }
-      .shell {
-        width: min(100% - 28px, var(--max));
-      }
-
-      .nav-inner {
-        padding: 18px 0;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-links {
-        width: 100%;
-        overflow-x: auto;
-        padding-bottom: 4px;
-      }
-
-      h1 {
-        letter-spacing: -0.06em;
-      }
-
-      .signal-grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 54px 0;
-      }
-
-      .story-panel, .role, .card, .skill-box, .education-item, .summary-card {
-        padding: 24px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ueide Santos | Backend Developer .NET, Arquitetura e IA Aplicada</title>
+
+    <meta name="description" content="Ueide Santos é Backend Developer .NET com experiência em sistemas críticos, arquitetura moderna, Kafka, DDD, liderança técnica e evolução para IA aplicada com responsabilidade." />
+    <meta name="author" content="Ueide Santos" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="theme-color" content="#070b14" />
+    <meta name="keywords" content="Ueide Santos, Backend Developer .NET, Desenvolvedor Backend, C#, .NET 10, Kafka, RabbitMQ, DDD, CQRS, Clean Architecture, Arquitetura Hexagonal, Microsserviços, Event-Driven Architecture, IA Aplicada, LLMOps, RAG, Engenharia de Software, Liderança Técnica, Osasco, São Paulo" />
+
+    <link rel="canonical" href="https://ueidesantos.github.io/ueide-santos-cv-web/" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Ueide Santos | Backend Developer .NET, Arquitetura e IA Aplicada" />
+    <meta property="og:description" content="Currículo web profissional com trajetória em backend .NET, sistemas críticos, liderança técnica, arquitetura moderna, Kafka, DDD e IA aplicada." />
+    <meta property="og:url" content="https://ueidesantos.github.io/ueide-santos-cv-web/" />
+    <meta property="og:site_name" content="Ueide Santos | Currículo Web" />
+    <meta property="og:image" content="https://ueidesantos.github.io/ueide-santos-cv-web/assets/og-ueide-santos-cv-web.png" />
+    <meta property="og:image:alt" content="Ueide Santos, Backend Developer .NET com foco em arquitetura moderna, liderança técnica e IA aplicada." />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ueide Santos | Backend Developer .NET, Arquitetura e IA Aplicada" />
+    <meta name="twitter:description" content="Currículo web profissional com foco em backend .NET, Kafka, arquitetura moderna, liderança técnica e IA aplicada." />
+    <meta name="twitter:image" content="https://ueidesantos.github.io/ueide-santos-cv-web/assets/og-ueide-santos-cv-web.png" />
+    <meta name="twitter:image:alt" content="Currículo web profissional de Ueide Santos." />
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Ueide Santos",
+          "url": "https://ueidesantos.github.io/ueide-santos-cv-web/",
+          "image": "https://ueidesantos.github.io/ueide-santos-cv-web/assets/ueide-profile.png",
+          "jobTitle": "Backend Developer .NET",
+          "description": "Backend Developer .NET com experiência em APIs, microsserviços, Kafka, RabbitMQ, arquitetura moderna, liderança técnica, sistemas críticos e IA aplicada.",
+          "email": "mailto:usjunior@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Osasco",
+            "addressRegion": "SP",
+            "addressCountry": "BR"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/ueide-santos",
+            "https://github.com/usjunior"
+          ],
+          "knowsAbout": [
+            "C#",
+            ".NET",
+            ".NET 10",
+            "Backend Development",
+            "Software Architecture",
+            "Clean Architecture",
+            "Domain-Driven Design",
+            "CQRS",
+            "Kafka",
+            "RabbitMQ",
+            "Microservices",
+            "Event-Driven Architecture",
+            "Artificial Intelligence",
+            "Generative AI",
+            "RAG",
+            "LLMOps",
+            "Technical Leadership"
+          ]
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg: #070b14;
+            --bg-2: #0b1020;
+            --surface: rgba(255, 255, 255, 0.06);
+            --surface-strong: rgba(255, 255, 255, 0.1);
+            --border: rgba(255, 255, 255, 0.12);
+            --border-strong: rgba(121, 255, 225, 0.28);
+            --text: #eef4ff;
+            --muted: #9aa9bf;
+            --muted-strong: #c7d2e2;
+            --brand: #79ffe1;
+            --brand-2: #8aa8ff;
+            --brand-3: #ff9f43;
+            --warm: #ff8a3d;
+            --warm-soft: rgba(255, 138, 61, 0.13);
+            --warm-line: rgba(255, 138, 61, 0.28);
+            --shadow: 0 26px 80px rgba(0, 0, 0, 0.38);
+            --radius-xl: 30px;
+            --radius-lg: 22px;
+            --radius-md: 16px;
+            --max: 1180px;
+            --font-code: "Cascadia Code", "Fira Code", "JetBrains Mono", Consolas, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--text);
+            background: radial-gradient(circle at 16% 7%, rgba(121, 255, 225, 0.18), transparent 26%), radial-gradient(circle at 88% 10%, rgba(138, 168, 255, 0.2), transparent 34%), radial-gradient(circle at 50% 92%, rgba(255, 138, 61, 0.1), transparent 34%), linear-gradient(135deg, #05070d 0%, var(--bg) 48%, var(--bg-2) 100%);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+            body::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                pointer-events: none;
+                z-index: -1;
+                background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px), linear-gradient(rgba(255, 138, 61, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 138, 61, 0.035) 1px, transparent 1px);
+                background-size: 54px 54px, 54px 54px, 216px 216px, 216px 216px;
+                mask-image: linear-gradient(to bottom, rgba(0,0,0,0.76), transparent 78%);
+            }
+
+            body::after {
+                content: "{ }  async  event-driven  .NET  Kafka  RAG  DDD  CQRS  LLMOps";
+                position: fixed;
+                right: -180px;
+                bottom: 12%;
+                z-index: -1;
+                color: rgba(255, 255, 255, 0.035);
+                font-family: var(--font-code);
+                font-size: clamp(2.6rem, 8vw, 7rem);
+                font-weight: 800;
+                letter-spacing: -0.08em;
+                white-space: nowrap;
+                transform: rotate(-7deg);
+                pointer-events: none;
+            }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .shell {
+            width: min(var(--max), calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 60;
+            background: rgba(7, 11, 20, 0.76);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-inner {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 22px;
+        }
+
+        .brand-mark {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            white-space: nowrap;
+        }
+
+            .brand-mark span:first-child {
+                width: 38px;
+                height: 38px;
+                display: grid;
+                place-items: center;
+                border-radius: 14px;
+                color: #06101a;
+                background: linear-gradient(135deg, var(--brand), var(--brand-2) 58%, var(--warm));
+                box-shadow: 0 12px 36px rgba(255, 138, 61, 0.16);
+            }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            color: var(--muted);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+            .nav-links a {
+                transition: color 0.2s ease;
+            }
+
+                .nav-links a:hover {
+                    color: var(--text);
+                }
+
+        .hero {
+            padding: 86px 0 64px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.12fr 0.88fr;
+            gap: 34px;
+            align-items: stretch;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 22px;
+            padding: 8px 12px;
+            border: 1px solid rgba(121, 255, 225, 0.28);
+            border-radius: 999px;
+            background: rgba(121, 255, 225, 0.065);
+            color: var(--warm);
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+        }
+
+        .pulse {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--brand);
+            box-shadow: 0 0 0 7px rgba(121, 255, 225, 0.11);
+        }
+
+        .terminal-strip {
+            width: fit-content;
+            max-width: 100%;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: -6px 0 24px;
+            padding: 10px 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(5, 7, 13, 0.56);
+            box-shadow: 0 18px 60px rgba(0,0,0,0.22);
+            backdrop-filter: blur(14px);
+            overflow: hidden;
+        }
+
+            .terminal-strip code {
+                color: var(--muted-strong);
+                font-family: var(--font-code);
+                font-size: 0.82rem;
+                white-space: nowrap;
+            }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex: 0 0 auto;
+            opacity: 0.9;
+        }
+
+            .dot.red {
+                background: #ff5f57;
+            }
+
+            .dot.yellow {
+                background: #ffbd2e;
+            }
+
+            .dot.green {
+                background: #28c840;
+            }
+
+        h1 {
+            max-width: 860px;
+            margin-bottom: 26px;
+            font-size: clamp(2.65rem, 6.8vw, 5.55rem);
+            line-height: 0.92;
+            letter-spacing: -0.075em;
+        }
+
+        .gradient-text {
+            color: transparent;
+            background: linear-gradient(135deg, #ffffff, #b8c6ff 42%, #79ffe1 72%, var(--warm) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .lead {
+            max-width: 760px;
+            color: var(--muted-strong);
+            font-size: clamp(1.06rem, 2vw, 1.26rem);
+            line-height: 1.78;
+        }
+
+        .signature-line {
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin-top: 24px;
+            padding: 12px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--warm-line);
+            background: linear-gradient(135deg, rgba(255,138,61,0.105), rgba(121,255,225,0.045));
+            color: var(--muted-strong);
+            font-size: 0.86rem;
+            font-weight: 800;
+            box-shadow: 0 16px 50px rgba(255, 138, 61, 0.08);
+        }
+
+            .signature-line i {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: var(--warm);
+                box-shadow: 0 0 0 5px rgba(255, 138, 61, 0.08);
+            }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 32px;
+        }
+
+        .btn {
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 0 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.06);
+            font-weight: 800;
+            font-size: 0.93rem;
+            transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+            .btn:hover {
+                transform: translateY(-2px);
+                background: rgba(255, 255, 255, 0.095);
+                border-color: rgba(121, 255, 225, 0.42);
+                box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+            }
+
+            .btn.primary {
+                border-color: transparent;
+                color: #06101a;
+                background: linear-gradient(135deg, var(--brand), var(--brand-2) 58%, var(--warm));
+            }
+
+        .icon-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .link-icon {
+            width: 17px;
+            height: 17px;
+            flex: 0 0 auto;
+        }
+
+            .link-icon.linkedin {
+                color: #8aa8ff;
+            }
+
+            .link-icon.github {
+                color: var(--warm);
+            }
+
+        .summary-card {
+            position: relative;
+            height: 100%;
+            padding: 28px;
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: linear-gradient(180deg, rgba(255,255,255,0.105), rgba(255,255,255,0.045));
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+            .summary-card::before {
+                content: "";
+                position: absolute;
+                inset: -2px;
+                background: radial-gradient(circle at top left, rgba(121,255,225,0.28), transparent 35%);
+                pointer-events: none;
+            }
+
+            .summary-card > * {
+                position: relative;
+            }
+
+        .executive-card {
+            padding: 18px;
+            border-color: rgba(255, 138, 61, 0.18);
+        }
+
+        .photo-stage {
+            position: relative;
+            min-height: 520px;
+            border-radius: 26px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: radial-gradient(circle at 30% 12%, rgba(121, 255, 225, 0.14), transparent 32%), radial-gradient(circle at 90% 8%, rgba(255, 138, 61, 0.12), transparent 26%), linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
+            isolation: isolate;
+        }
+
+        .executive-photo {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            filter: saturate(0.96) contrast(1.03);
+            transform: scale(1.015);
+        }
+
+        .photo-stage::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(180deg, rgba(7,11,20,0.02) 0%, rgba(7,11,20,0.06) 42%, rgba(7,11,20,0.92) 100%), radial-gradient(circle at 18% 10%, rgba(121,255,225,0.18), transparent 38%), radial-gradient(circle at 88% 18%, rgba(255,138,61,0.16), transparent 34%), radial-gradient(circle at 84% 18%, rgba(138,168,255,0.16), transparent 38%);
+            pointer-events: none;
+        }
+
+        .photo-stage::after {
+            content: "";
+            position: absolute;
+            inset: 18px;
+            z-index: 2;
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: inset 0 0 0 1px rgba(255, 138, 61, 0.08);
+            pointer-events: none;
+        }
+
+        .photo-glow {
+            position: absolute;
+            inset: auto -20% -28% -20%;
+            height: 210px;
+            z-index: 2;
+            background: radial-gradient(circle, rgba(255,138,61,0.2), transparent 68%);
+            filter: blur(10px);
+            pointer-events: none;
+        }
+
+        .photo-caption {
+            position: absolute;
+            left: 18px;
+            right: 18px;
+            bottom: 18px;
+            z-index: 3;
+            padding: 18px;
+            border-radius: 22px;
+            border: 1px solid rgba(255,255,255,0.14);
+            background: rgba(7, 11, 20, 0.58);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+        }
+
+            .photo-caption span {
+                display: block;
+                margin-bottom: 6px;
+                color: var(--warm);
+                font-size: 0.72rem;
+                font-weight: 950;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+            }
+
+            .photo-caption strong {
+                display: block;
+                color: var(--text);
+                font-size: clamp(1rem, 2vw, 1.18rem);
+                line-height: 1.28;
+                letter-spacing: -0.035em;
+            }
+
+        .profile-title {
+            margin-bottom: 22px;
+        }
+
+            .profile-title h2 {
+                margin-bottom: 8px;
+                font-size: 1.75rem;
+                letter-spacing: -0.045em;
+            }
+
+            .profile-title p {
+                color: var(--muted);
+            }
+
+        .executive-title {
+            margin: 22px 10px 18px;
+        }
+
+        .code-status {
+            display: inline-flex;
+            margin-top: 12px;
+            padding: 8px 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(121, 255, 225, 0.18);
+            background: rgba(16, 185, 129, 0.075);
+            color: var(--brand);
+            font-family: var(--font-code);
+            font-size: 0.78rem;
+            box-shadow: 0 0 30px rgba(121,255,225,0.06);
+        }
+
+        .signal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 22px 0;
+        }
+
+        .executive-signals {
+            margin: 18px 10px 22px;
+        }
+
+        .signal {
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+            .signal strong {
+                display: block;
+                margin-bottom: 5px;
+                font-size: 1.35rem;
+                line-height: 1;
+            }
+
+            .signal span {
+                display: block;
+                color: var(--muted);
+                font-size: 0.82rem;
+            }
+
+        .contact-list {
+            display: grid;
+            gap: 11px;
+            margin: 22px 10px 10px;
+            color: var(--muted-strong);
+            font-size: 0.96rem;
+        }
+
+            .contact-list a {
+                color: var(--text);
+                transition: color 0.2s ease;
+            }
+
+                .contact-list a:hover {
+                    color: var(--brand);
+                }
+
+        section {
+            padding: 70px 0;
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 28px;
+            margin-bottom: 30px;
+        }
+
+        .kicker {
+            margin-bottom: 10px;
+            color: var(--warm);
+            font-size: 0.76rem;
+            font-weight: 950;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        h2.section-title {
+            max-width: 760px;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.02;
+            letter-spacing: -0.055em;
+        }
+
+        .section-note {
+            max-width: 390px;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .story-panel {
+            padding: 34px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            background: rgba(255, 255, 255, 0.055);
+            box-shadow: 0 22px 70px rgba(0,0,0,0.24);
+        }
+
+            .story-panel p {
+                max-width: 960px;
+                color: var(--muted-strong);
+                font-size: clamp(1.05rem, 2vw, 1.2rem);
+                line-height: 1.82;
+            }
+
+        .compass-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .compass-card {
+            position: relative;
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255,255,255,0.11);
+            background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+            overflow: hidden;
+        }
+
+            .compass-card::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 4px;
+                height: 100%;
+                background: linear-gradient(180deg, var(--warm), transparent);
+            }
+
+            .compass-card span {
+                display: inline-flex;
+                margin-bottom: 18px;
+                width: 36px;
+                height: 36px;
+                align-items: center;
+                justify-content: center;
+                border-radius: 14px;
+                color: #130904;
+                background: linear-gradient(135deg, var(--warm), var(--brand-3));
+                font-weight: 950;
+                box-shadow: 0 14px 36px rgba(255, 138, 61, 0.16);
+            }
+
+            .compass-card strong {
+                display: block;
+                margin-bottom: 8px;
+                font-size: 1.1rem;
+                letter-spacing: -0.035em;
+            }
+
+            .compass-card p {
+                color: var(--muted);
+                font-size: 0.95rem;
+            }
+
+        .timeline {
+            position: relative;
+            display: grid;
+            gap: 18px;
+        }
+
+        .role {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 22px;
+            padding: 26px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: var(--radius-xl);
+            background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+
+            .role:hover {
+                transform: translateY(-4px);
+                border-color: rgba(121, 255, 225, 0.28);
+                background: linear-gradient(180deg, rgba(255,255,255,0.105), rgba(255,255,255,0.05));
+            }
+
+        .role-meta {
+            border-right: 1px solid rgba(255,255,255,0.1);
+            padding-right: 22px;
+        }
+
+        .role-company {
+            display: inline-flex;
+            margin-bottom: 12px;
+            padding: 8px 11px;
+            border-radius: 999px;
+            color: var(--warm);
+            background: rgba(255, 138, 61, 0.075);
+            border: 1px solid rgba(255, 138, 61, 0.2);
+            font-family: var(--font-code);
+            font-size: 0.75rem;
+            font-weight: 900;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+        }
+
+        .role-meta h3 {
+            margin-bottom: 8px;
+            font-size: 1.25rem;
+            line-height: 1.18;
+            letter-spacing: -0.04em;
+        }
+
+        .period {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .role-body p {
+            color: var(--muted-strong);
+            margin-bottom: 16px;
+        }
+
+        .bullets {
+            display: grid;
+            gap: 9px;
+            margin-top: 14px;
+            list-style: none;
+        }
+
+            .bullets li {
+                position: relative;
+                padding-left: 24px;
+                color: var(--muted-strong);
+            }
+
+                .bullets li::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 0.74em;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+                    transform: translateY(-50%);
+                }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .tag {
+            padding: 7px 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.075);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--muted-strong);
+            font-family: var(--font-code);
+            font-size: 0.76rem;
+            font-weight: 750;
+        }
+
+            .tag::before {
+                content: "#";
+                color: var(--warm);
+                margin-right: 2px;
+                opacity: 0.9;
+            }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            padding: 30px;
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            background: radial-gradient(circle at 20% 0%, rgba(121, 255, 225, 0.12), transparent 32%), rgba(255, 255, 255, 0.052);
+            box-shadow: 0 22px 64px rgba(0,0,0,0.22);
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+                border-color: rgba(138, 168, 255, 0.34);
+            }
+
+            .card h3 {
+                margin-bottom: 14px;
+                font-size: clamp(1.45rem, 3vw, 2rem);
+                line-height: 1.08;
+                letter-spacing: -0.05em;
+            }
+
+            .card p {
+                color: var(--muted-strong);
+                line-height: 1.72;
+            }
+
+        .card-link {
+            display: inline-flex;
+            margin-top: 20px;
+            padding: 12px 15px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.09);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            font-weight: 850;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+            .card-link:hover {
+                transform: translateX(2px);
+                background: rgba(255, 255, 255, 0.14);
+            }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .skill-box {
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.055);
+        }
+
+            .skill-box h3 {
+                margin-bottom: 14px;
+                font-size: 1.15rem;
+                letter-spacing: -0.03em;
+            }
+
+            .skill-box p {
+                color: var(--muted);
+                font-size: 0.96rem;
+            }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+
+        .education-item {
+            padding: 22px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.055);
+        }
+
+            .education-item strong {
+                display: block;
+                margin-bottom: 6px;
+                color: var(--text);
+            }
+
+            .education-item span {
+                display: block;
+                color: var(--muted);
+                font-size: 0.92rem;
+            }
+
+        .courses-board {
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.055);
+            box-shadow: 0 22px 70px rgba(0,0,0,0.22);
+            overflow: hidden;
+        }
+
+        .courses-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 20px 22px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            background: linear-gradient(135deg, rgba(121,255,225,0.08), rgba(138,168,255,0.055));
+        }
+
+            .courses-toolbar strong {
+                font-size: 1.05rem;
+                letter-spacing: -0.03em;
+            }
+
+            .courses-toolbar span {
+                color: var(--muted);
+                font-size: 0.92rem;
+            }
+
+        .course-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .course-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 16px;
+            padding: 18px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-right: 1px solid rgba(255,255,255,0.08);
+        }
+
+            .course-item:nth-child(2n) {
+                border-right: 0;
+            }
+
+            .course-item strong {
+                display: block;
+                margin-bottom: 4px;
+                color: var(--text);
+                font-size: 0.98rem;
+                line-height: 1.35;
+            }
+
+            .course-item span {
+                color: var(--muted);
+                font-size: 0.88rem;
+            }
+
+        .course-badge {
+            align-self: start;
+            padding: 7px 10px;
+            border-radius: 999px;
+            color: var(--warm);
+            background: rgba(255,138,61,0.075);
+            border: 1px solid rgba(255,138,61,0.18);
+            font-family: var(--font-code);
+            font-size: 0.72rem;
+            font-weight: 850;
+            white-space: nowrap;
+        }
+
+        .quote-section {
+            padding-bottom: 96px;
+        }
+
+        .quote-card {
+            padding: clamp(32px, 6vw, 58px);
+            border-radius: 34px;
+            border: 1px solid rgba(255,255,255,0.14);
+            background: radial-gradient(circle at 18% 0%, rgba(255,138,61,0.18), transparent 34%), radial-gradient(circle at 90% 30%, rgba(138,168,255,0.18), transparent 34%), radial-gradient(circle at 50% 100%, rgba(121,255,225,0.1), transparent 38%), rgba(255,255,255,0.065);
+            box-shadow: var(--shadow);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        blockquote {
+            max-width: 920px;
+            margin: 0 auto 18px;
+            font-size: clamp(1.55rem, 4vw, 3.35rem);
+            line-height: 1.06;
+            letter-spacing: -0.065em;
+            font-weight: 900;
+        }
+
+        .quote-card p {
+            max-width: 760px;
+            margin: 0 auto;
+            color: var(--muted-strong);
+            font-size: 1.1rem;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 28px 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            transition: color 0.2s ease;
+        }
+
+            footer a:hover {
+                color: var(--text);
+            }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+            .reveal.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        @media print {
+            .nav, .hero-actions, .btn, .card-link, footer, body::before, body::after {
+                display: none !important;
+            }
+
+            body {
+                background: #fff;
+                color: #111827;
+            }
+
+            .story-panel, .role, .card, .skill-box, .education-item, .quote-card, .summary-card {
+                box-shadow: none;
+                border-color: #d1d5db;
+                background: #fff;
+            }
+
+            .muted, .period, .section-note, p, li, span {
+                color: #374151 !important;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .hero-grid, .grid-2, .skills-grid, .education-grid, .compass-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .role {
+                grid-template-columns: 1fr;
+            }
+
+            .role-meta {
+                border-right: 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                padding-right: 0;
+                padding-bottom: 18px;
+            }
+
+            .section-head {
+                flex-direction: column;
+                align-items: start;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .shell {
+                width: min(100% - 28px, var(--max));
+            }
+
+            .nav-inner {
+                padding: 18px 0;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 4px;
+            }
+
+            h1 {
+                letter-spacing: -0.06em;
+            }
+
+            .terminal-strip {
+                width: 100%;
+            }
+
+                .terminal-strip code {
+                    white-space: normal;
+                    line-height: 1.5;
+                }
+
+            .signal-grid, .course-list {
+                grid-template-columns: 1fr;
+            }
+
+            .course-item,
+            .course-item:nth-child(2n) {
+                border-right: 0;
+            }
+
+            .photo-stage {
+                min-height: 520px;
+            }
+
+            .photo-caption {
+                left: 14px;
+                right: 14px;
+                bottom: 14px;
+            }
+
+            section {
+                padding: 54px 0;
+            }
+
+            .story-panel, .role, .card, .skill-box, .education-item, .summary-card {
+                padding: 24px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <nav class="nav" aria-label="Navegação principal">
-    <div class="shell nav-inner">
-      <a class="brand-mark" href="#top" aria-label="Voltar ao início">
-        <span>US</span>
-        <span>Ueide Santos</span>
-      </a>
-      <div class="nav-links">
-        <a href="#story">Resumo</a>
-        <a href="#experience">Experiência</a>
-        <a href="#projects">Projetos</a>
-        <a href="#skills">Competências</a>
-        <a href="#education">Formação</a>
-        <a href="#courses">Cursos</a>
-      </div>
-    </div>
-  </nav>
-
-  <main id="top">
-    <header class="hero">
-      <div class="shell hero-grid">
-        <div class="reveal">
-          <div class="eyebrow"><span class="pulse"></span> Backend Developer · .NET 10 · IA Aplicada</div>
-          <div class="terminal-strip" aria-label="Sinal técnico">
-            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-            <code>ueide@engineering:~$ build --software --leadership --applied-ai</code>
-          </div>
-          <h1>Currículo web com trajetória, arquitetura e <span class="gradient-text">storytelling profissional.</span></h1>
-          <p class="lead">
-            Desenvolvedor Backend .NET com experiência em sistemas críticos para bancos, fintechs e saúde. Minha carreira combina engenharia de software, liderança técnica, arquitetura moderna e uma evolução intencional para IA aplicada com responsabilidade, guardrails e privacidade por design.
-          </p>
-
-          <div class="signature-line" aria-label="Posicionamento profissional">
-            <span>Precisão técnica</span>
-            <i></i>
-            <span>Liderança madura</span>
-            <i></i>
-            <span>IA aplicada com responsabilidade</span>
-          </div>
-          <div class="hero-actions">
-            <a class="btn primary" href="#experience">Ver trajetória →</a>
-            <a class="btn" href="assets/cv_ueide.santos_202605_v3.pdf" target="_blank" rel="noopener noreferrer">Baixar CV em PDF</a>
-            <a class="btn icon-link" href="https://www.linkedin.com/in/ueide-santos" target="_blank" rel="noopener noreferrer"><svg class="link-icon linkedin" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.53V9H7.1v11.45z"/></svg>LinkedIn</a>
-            <a class="btn icon-link" href="https://github.com/usjunior" target="_blank" rel="noopener noreferrer"><svg class="link-icon github" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.25c0 5.2 3.36 9.6 8.02 11.16.59.1.8-.26.8-.57v-2.02c-3.26.72-3.95-1.42-3.95-1.42-.53-1.38-1.3-1.75-1.3-1.75-1.06-.74.08-.72.08-.72 1.18.08 1.8 1.24 1.8 1.24 1.04 1.83 2.73 1.3 3.4.99.1-.77.4-1.3.74-1.6-2.6-.3-5.34-1.34-5.34-5.96 0-1.32.46-2.4 1.21-3.24-.12-.3-.53-1.53.12-3.2 0 0 .99-.32 3.25 1.23a11.1 11.1 0 0 1 5.92 0c2.26-1.55 3.25-1.23 3.25-1.23.65 1.67.24 2.9.12 3.2.75.84 1.21 1.92 1.21 3.24 0 4.64-2.75 5.66-5.37 5.95.42.37.79 1.1.79 2.22v3.29c0 .31.21.68.81.57a11.76 11.76 0 0 0 8-11.16A11.5 11.5 0 0 0 12 .5z"/></svg>GitHub</a>
-          </div>
+    <nav class="nav" aria-label="Navegação principal">
+        <div class="shell nav-inner">
+            <a class="brand-mark" href="#top" aria-label="Voltar ao início">
+                <span>US</span>
+                <span>Ueide Santos</span>
+            </a>
+            <div class="nav-links">
+                <a href="#story">Resumo</a>
+                <a href="#experience">Experiência</a>
+                <a href="#projects">Projetos</a>
+                <a href="#skills">Competências</a>
+                <a href="#education">Formação</a>
+                <a href="#courses">Cursos</a>
+            </div>
         </div>
+    </nav>
 
-        <aside class="summary-card executive-card reveal" aria-label="Resumo executivo de Ueide Santos">
-          <div class="photo-stage">
-            <img src="assets/Eu_linkedin.png" alt="Foto profissional de Ueide Santos" class="executive-photo" />
-            <div class="photo-glow" aria-hidden="true"></div>
-            <div class="photo-caption">
-              <span>Backend · Architecture · Applied AI</span>
-              <strong>Engineering leadership with hands-on depth</strong>
-            </div>
-          </div>
+    <main id="top">
+        <header class="hero" aria-labelledby="hero-title">
+            <div class="shell hero-grid">
+                <div class="reveal">
+                    <div class="eyebrow"><span class="pulse"></span> Backend Developer · .NET 10 · IA Aplicada</div>
+                    <div class="terminal-strip" aria-label="Sinal técnico">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                        <code>ueide@engineering:~$ build --software --leadership --applied-ai</code>
+                    </div>
+                    <h1 id="hero-title">Ueide Santos: Backend Developer .NET com trajetória em arquitetura, liderança técnica e <span class="gradient-text">IA aplicada.</span></h1>
+                    <p class="lead">
+                        Desenvolvedor Backend .NET com experiência em sistemas críticos para bancos, fintechs e saúde. Minha carreira combina engenharia de software, liderança técnica, arquitetura moderna e uma evolução intencional para IA aplicada com responsabilidade, guardrails e privacidade por design.
+                    </p>
 
-          <div class="profile-title executive-title">
-            <h2>Ueide Santos</h2>
-            <p>Backend Developer | DotNet 10, Kafka, EDA, DDD, CQRS e pós-graduando em Engenharia de Software com IA.</p>
-            <div class="code-status"><code>System.Status == "Online"</code></div>
-          </div>
+                    <div class="signature-line" aria-label="Posicionamento profissional">
+                        <span>Precisão técnica</span>
+                        <i></i>
+                        <span>Liderança madura</span>
+                        <i></i>
+                        <span>IA aplicada com responsabilidade</span>
+                    </div>
 
-          <div class="signal-grid executive-signals">
-            <div class="signal">
-              <strong>.NET</strong>
-              <span>APIs, workers, arquitetura e backend moderno</span>
-            </div>
-            <div class="signal">
-              <strong>IA</strong>
-              <span>LLMOps, RAG, guardrails e IA responsável</span>
-            </div>
-            <div class="signal">
-              <strong>EDA</strong>
-              <span>Kafka, RabbitMQ, mensageria e sistemas distribuídos</span>
-            </div>
-            <div class="signal">
-              <strong>Lead</strong>
-              <span>coordenação, decisões técnicas e visão de negócio</span>
-            </div>
-          </div>
+                    <div class="hero-actions">
+                        <a class="btn primary" href="#experience" aria-label="Ver trajetória profissional de Ueide Santos">Ver trajetória →</a>
+                        <a class="btn" href="assets/cv_ueide.santos_202605_v3.pdf" target="_blank" rel="noopener noreferrer" aria-label="Baixar currículo em PDF de Ueide Santos">Baixar CV em PDF</a>
+                        <a class="btn icon-link" href="https://www.linkedin.com/in/ueide-santos" target="_blank" rel="noopener noreferrer"><svg class="link-icon linkedin" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.53V9H7.1v11.45z" /></svg>LinkedIn</a>
+                        <a class="btn icon-link" href="https://github.com/usjunior" target="_blank" rel="noopener noreferrer"><svg class="link-icon github" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.25c0 5.2 3.36 9.6 8.02 11.16.59.1.8-.26.8-.57v-2.02c-3.26.72-3.95-1.42-3.95-1.42-.53-1.38-1.3-1.75-1.3-1.75-1.06-.74.08-.72.08-.72 1.18.08 1.8 1.24 1.8 1.24 1.04 1.83 2.73 1.3 3.4.99.1-.77.4-1.3.74-1.6-2.6-.3-5.34-1.34-5.34-5.96 0-1.32.46-2.4 1.21-3.24-.12-.3-.53-1.53.12-3.2 0 0 .99-.32 3.25 1.23a11.1 11.1 0 0 1 5.92 0c2.26-1.55 3.25-1.23 3.25-1.23.65 1.67.24 2.9.12 3.2.75.84 1.21 1.92 1.21 3.24 0 4.64-2.75 5.66-5.37 5.95.42.37.79 1.1.79 2.22v3.29c0 .31.21.68.81.57a11.76 11.76 0 0 0 8-11.16A11.5 11.5 0 0 0 12 .5z" /></svg>GitHub</a>
+                    </div>
+                </div>
 
-          <div class="contact-list">
-            <span>📍 Osasco/SP · Brasil</span>
-            <span>✉️ <a href="mailto:usjunior@gmail.com">usjunior@gmail.com</a></span>
-            <span><a class="icon-link" href="https://www.linkedin.com/in/ueide-santos" target="_blank" rel="noopener noreferrer"><svg class="link-icon linkedin" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.53V9H7.1v11.45z"/></svg>linkedin.com/in/ueide-santos</a></span>
-            <span><a class="icon-link" href="https://github.com/usjunior" target="_blank" rel="noopener noreferrer"><svg class="link-icon github" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.25c0 5.2 3.36 9.6 8.02 11.16.59.1.8-.26.8-.57v-2.02c-3.26.72-3.95-1.42-3.95-1.42-.53-1.38-1.3-1.75-1.3-1.75-1.06-.74.08-.72.08-.72 1.18.08 1.8 1.24 1.8 1.24 1.04 1.83 2.73 1.3 3.4.99.1-.77.4-1.3.74-1.6-2.6-.3-5.34-1.34-5.34-5.96 0-1.32.46-2.4 1.21-3.24-.12-.3-.53-1.53.12-3.2 0 0 .99-.32 3.25 1.23a11.1 11.1 0 0 1 5.92 0c2.26-1.55 3.25-1.23 3.25-1.23.65 1.67.24 2.9.12 3.2.75.84 1.21 1.92 1.21 3.24 0 4.64-2.75 5.66-5.37 5.95.42.37.79 1.1.79 2.22v3.29c0 .31.21.68.81.57a11.76 11.76 0 0 0 8-11.16A11.5 11.5 0 0 0 12 .5z"/></svg>github.com/usjunior</a></span>
-          </div>
-        </aside>
-      </div>
-    </header>
+                <aside class="summary-card executive-card reveal" aria-label="Resumo executivo de Ueide Santos">
+                    <div class="photo-stage">
+                        <img src="assets/ueide-profile.png" alt="Ueide Santos, Backend Developer .NET com experiência em arquitetura moderna, liderança técnica e IA aplicada." class="executive-photo" />
+                        <div class="photo-glow" aria-hidden="true"></div>
+                        <div class="photo-caption">
+                            <span>Backend · Architecture · Applied AI</span>
+                            <strong>Engineering leadership with hands-on depth</strong>
+                        </div>
+                    </div>
 
-    <section id="story">
-      <div class="shell">
-        <div class="section-head reveal">
-          <div>
-            <p class="kicker">Resumo profissional</p>
-            <h2 class="section-title">Uma carreira construída em ambientes de alta criticidade.</h2>
-          </div>
-          <p class="section-note">Uma leitura rápida para recrutadores, gestores e lideranças técnicas.</p>
+                    <div class="profile-title executive-title">
+                        <h2>Ueide Santos</h2>
+                        <p>Backend Developer | DotNet 10, Kafka, EDA, DDD, CQRS e pós-graduando em Engenharia de Software com IA.</p>
+                        <div class="code-status"><code>Engineer.Mode == "Building"</code></div>
+                    </div>
+
+                    <div class="signal-grid executive-signals">
+                        <div class="signal">
+                            <strong>.NET</strong>
+                            <span>APIs, workers, arquitetura e backend moderno</span>
+                        </div>
+                        <div class="signal">
+                            <strong>IA</strong>
+                            <span>LLMOps, RAG, guardrails e IA responsável</span>
+                        </div>
+                        <div class="signal">
+                            <strong>EDA</strong>
+                            <span>Kafka, RabbitMQ, mensageria e sistemas distribuídos</span>
+                        </div>
+                        <div class="signal">
+                            <strong>Lead</strong>
+                            <span>coordenação, decisões técnicas e visão de negócio</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-list">
+                        <span>📍 Osasco/SP · Brasil</span>
+                        <span>✉️ <a href="mailto:usjunior@gmail.com">usjunior@gmail.com</a></span>
+                        <span><a class="icon-link" href="https://www.linkedin.com/in/ueide-santos" target="_blank" rel="noopener noreferrer"><svg class="link-icon linkedin" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.53V9H7.1v11.45z" /></svg>linkedin.com/in/ueide-santos</a></span>
+                        <span><a class="icon-link" href="https://github.com/usjunior" target="_blank" rel="noopener noreferrer"><svg class="link-icon github" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.25c0 5.2 3.36 9.6 8.02 11.16.59.1.8-.26.8-.57v-2.02c-3.26.72-3.95-1.42-3.95-1.42-.53-1.38-1.3-1.75-1.3-1.75-1.06-.74.08-.72.08-.72 1.18.08 1.8 1.24 1.8 1.24 1.04 1.83 2.73 1.3 3.4.99.1-.77.4-1.3.74-1.6-2.6-.3-5.34-1.34-5.34-5.96 0-1.32.46-2.4 1.21-3.24-.12-.3-.53-1.53.12-3.2 0 0 .99-.32 3.25 1.23a11.1 11.1 0 0 1 5.92 0c2.26-1.55 3.25-1.23 3.25-1.23.65 1.67.24 2.9.12 3.2.75.84 1.21 1.92 1.21 3.24 0 4.64-2.75 5.66-5.37 5.95.42.37.79 1.1.79 2.22v3.29c0 .31.21.68.81.57a11.76 11.76 0 0 0 8-11.16A11.5 11.5 0 0 0 12 .5z" /></svg>github.com/usjunior</a></span>
+                    </div>
+                </aside>
+            </div>
+        </header>
+
+        <section id="story" aria-labelledby="summary-title">
+            <div class="shell">
+                <div class="section-head reveal">
+                    <div>
+                        <p class="kicker">~/professional-summary</p>
+                        <h2 id="summary-title" class="section-title">Uma carreira construída em ambientes de alta criticidade.</h2>
+                    </div>
+                    <p class="section-note">Uma leitura rápida para recrutadores, gestores e lideranças técnicas.</p>
+                </div>
+
+                <div class="story-panel reveal">
+                    <p>
+                        Minha trajetória nasceu na engenharia de software backend e amadureceu em ambientes onde estabilidade, segurança, integração e clareza arquitetural fazem diferença. Ao longo da carreira, atuei em setores como saúde, bancos e fintechs, evoluindo APIs, sistemas legados, integrações, mensageria e plataformas corporativas.
+                    </p>
+                    <br />
+                    <p>
+                        A experiência na Unimed FESP consolidou uma visão mais ampla: tecnologia como operação, governança, entrega, indicadores, arquitetura e impacto no negócio. Nos últimos anos, aprofundei minha atuação em .NET, arquitetura hexagonal, microsserviços, Kafka, RabbitMQ, cloud e padrões de design aplicados a sistemas críticos.
+                    </p>
+                    <br />
+                    <p>
+                        Hoje, minha evolução está direcionada para IA aplicada. Estou cursando pós-graduação em Engenharia de Software com IA e desenvolvendo projetos que unem backend moderno, IA generativa, guardrails, observabilidade, LGPD, privacidade por design e responsabilidade técnica.
+                    </p>
+                </div>
+
+                <div class="compass-grid reveal">
+                    <article class="compass-card">
+                        <span>01</span>
+                        <strong>Base que sustenta voo</strong>
+                        <p>Backend, arquitetura e sistemas críticos como fundação para decisões técnicas maduras.</p>
+                    </article>
+                    <article class="compass-card">
+                        <span>02</span>
+                        <strong>Liderança com contexto</strong>
+                        <p>Experiência conectando tecnologia, negócio, governança, entrega e pessoas.</p>
+                    </article>
+                    <article class="compass-card">
+                        <span>03</span>
+                        <strong>IA com responsabilidade</strong>
+                        <p>Aplicação de IA generativa com guardrails, privacidade, observabilidade e propósito real.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" aria-labelledby="experience-title">
+            <div class="shell">
+                <div class="section-head reveal">
+                    <div>
+                        <p class="kicker">~/experience</p>
+                        <h2 id="experience-title" class="section-title">De sistemas corporativos a plataformas financeiras críticas.</h2>
+                    </div>
+                    <p class="section-note">Experiências organizadas em narrativa, não apenas em cargos.</p>
+                </div>
+
+                <div class="timeline">
+                    <article class="role reveal">
+                        <div class="role-meta">
+                            <span class="role-company">GFT · Banco BMG</span>
+                            <h3>Engenheiro de Software Backend .NET Core</h3>
+                            <p class="period">Set 2024 – Jun 2026</p>
+                        </div>
+                        <div class="role-body">
+                            <p>
+                                Atuação na modernização da esteira de pagamentos de um grande banco, contribuindo para escalabilidade, resiliência, desacoplamento de processos críticos e integração entre múltiplos sistemas.
+                            </p>
+                            <ul class="bullets">
+                                <li>Evolução de APIs REST em .NET 10.</li>
+                                <li>Integração assíncrona via Kafka, RabbitMQ e AWS MSK.</li>
+                                <li>Uso de arquitetura hexagonal para isolamento de domínio.</li>
+                                <li>Suporte a fluxos orquestrados com Camunda.</li>
+                                <li>Liderança técnica na concepção do Worker de Recálculo de Valores para Empréstimos.</li>
+                                <li>Aplicação de SOLID e patterns como Strategy, Abstract Factory, Factory Method, Template Method e Specification.</li>
+                            </ul>
+                            <div class="tags">
+                                <span class="tag">.NET 10</span><span class="tag">Kafka</span><span class="tag">RabbitMQ</span><span class="tag">MSK</span><span class="tag">MongoDB</span><span class="tag">Oracle</span><span class="tag">Redis</span><span class="tag">Camunda</span><span class="tag">Arquitetura Hexagonal</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="role reveal">
+                        <div class="role-meta">
+                            <span class="role-company">Verity · InterPlayers</span>
+                            <h3>Engenheiro de Software Backend .NET Core</h3>
+                            <p class="period">Jul 2021 – Jun 2024</p>
+                        </div>
+                        <div class="role-body">
+                            <p>
+                                Atuação na evolução do backend do aplicativo Healthy, suportando jornadas de onboarding, e-commerce e billing, com impacto direto na experiência do usuário e no negócio.
+                            </p>
+                            <ul class="bullets">
+                                <li>Desenvolvimento e manutenção de APIs REST.</li>
+                                <li>Evolução de arquitetura para maior escalabilidade.</li>
+                                <li>Integração com serviços Azure e pipelines de dados.</li>
+                                <li>Implementação de testes unitários para aumento de confiabilidade.</li>
+                            </ul>
+                            <div class="tags">
+                                <span class="tag">C#</span><span class="tag">.NET 8</span><span class="tag">SQL Server</span><span class="tag">Redis</span><span class="tag">RabbitMQ</span><span class="tag">Azure</span><span class="tag">Azure Data Factory</span><span class="tag">xUnit</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="role reveal">
+                        <div class="role-meta">
+                            <span class="role-company">Altran · BTG Pactual</span>
+                            <h3>Engenheiro de Software Backend .NET Core</h3>
+                            <p class="period">Nov 2020 – Jul 2021</p>
+                        </div>
+                        <div class="role-body">
+                            <p>
+                                Experiência em ambiente financeiro, atuando com backend .NET em contexto de alta exigência técnica, integração e qualidade de entrega.
+                            </p>
+                            <div class="tags">
+                                <span class="tag">Backend</span><span class="tag">.NET Core</span><span class="tag">Financeiro</span><span class="tag">APIs</span><span class="tag">Integrações</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="role reveal">
+                        <div class="role-meta">
+                            <span class="role-company">Repom · Edenred Brasil</span>
+                            <h3>Desenvolvedor Backend</h3>
+                            <p class="period">Mar 2020 – Nov 2020</p>
+                        </div>
+                        <div class="role-body">
+                            <p>
+                                Desenvolvimento e análise de sistemas com plataforma Microsoft, APIs, mensageria e infraestrutura moderna para aplicações corporativas.
+                            </p>
+                            <div class="tags">
+                                <span class="tag">ASP.NET Core</span><span class="tag">Web API</span><span class="tag">C#</span><span class="tag">SQL Server</span><span class="tag">RabbitMQ</span><span class="tag">Kubernetes</span><span class="tag">Azure</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="role reveal">
+                        <div class="role-meta">
+                            <span class="role-company">Unimed FESP</span>
+                            <h3>Analista Sr. · Líder Técnico</h3>
+                            <p class="period">Set 2007 – Jan 2018</p>
+                        </div>
+                        <div class="role-body">
+                            <p>
+                                Uma das fases mais formadoras da carreira: liderança técnica, arquitetura corporativa, governança de processos, sustentação de sistemas críticos e alinhamento entre tecnologia e negócio no setor de saúde suplementar.
+                            </p>
+                            <ul class="bullets">
+                                <li>Liderança técnica e referência estratégica para equipes de Negócios de TI, QA e Desenvolvimento.</li>
+                                <li>Definição, implantação e governança de processos apoiados por RUP, PMBOK, ITIL, COBIT, SCRUM, Lean IT e DevOps.</li>
+                                <li>Acompanhamento de indicadores financeiros, métricas de produtividade e KPIs de sistemas críticos.</li>
+                                <li>Definição de arquitetura corporativa orientada a serviços.</li>
+                                <li>Atuação em sistemas regulados pelo padrão TISS da ANS.</li>
+                                <li>Participação em soluções comercializadas para outras Unimeds, como o Consultório Online.</li>
+                            </ul>
+                            <div class="tags">
+                                <span class="tag">Liderança Técnica</span><span class="tag">SOA</span><span class="tag">Governança</span><span class="tag">Saúde</span><span class="tag">TISS</span><span class="tag">WCF</span><span class="tag">SQL Server</span><span class="tag">SharePoint</span><span class="tag">Azure DevOps</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="role reveal">
+                        <div class="role-meta">
+                            <span class="role-company">Primeira base técnica</span>
+                            <h3>Sage Brasil · Dotz Marketing · Rapp Collins</h3>
+                            <p class="period">1999 – 2007</p>
+                        </div>
+                        <div class="role-body">
+                            <p>
+                                Construção da base prática em desenvolvimento web e plataforma Microsoft, com C#, VB.NET, ASP.NET, ADO.NET e SQL Server. Essa fase consolidou disciplina técnica, raciocínio de manutenção e evolução de sistemas corporativos.
+                            </p>
+                            <div class="tags">
+                                <span class="tag">C#</span><span class="tag">VB.NET</span><span class="tag">ASP.NET</span><span class="tag">ADO.NET</span><span class="tag">SQL Server</span><span class="tag">Web Systems</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" aria-labelledby="projects-title">
+            <div class="shell">
+                <div class="section-head reveal">
+                    <div>
+                        <p class="kicker">~/featured-project</p>
+                        <h2 id="projects-title" class="section-title">IA aplicada com responsabilidade técnica.</h2>
+                    </div>
+                    <p class="section-note">Projeto educacional desenvolvido durante a pós-graduação em Engenharia de Software com IA.</p>
+                </div>
+
+                <div class="grid-2">
+                    <article class="card reveal">
+                        <p class="kicker">Neuro Care</p>
+                        <h3>Cognitive Report Generator for Consultation</h3>
+                        <p>
+                            Laboratório educacional de IA generativa aplicada à saúde digital. O projeto simula a organização de relatos cognitivos, funcionais e comportamentais em um relatório não diagnóstico para conversa com profissional de saúde.
+                        </p>
+                        <ul class="bullets">
+                            <li>Aplica regras determinísticas para classificação de prioridade de atenção.</li>
+                            <li>Mantém a IA fora da decisão clínica.</li>
+                            <li>Explora guardrails, LGPD, CFM, auditoria, observabilidade, structured output, RAG e human-in-the-loop.</li>
+                        </ul>
+                        <a class="card-link" href="https://ueidesantos.github.io/neurocare-ai-lab" target="_blank" rel="noopener noreferrer">Acessar landing page →</a>
+                    </article>
+
+                    <article class="card reveal">
+                        <p class="kicker">Princípio do projeto</p>
+                        <h3>IA como apoio, não como autoridade clínica.</h3>
+                        <p>
+                            O Neuro Care não diagnostica, não calcula risco individual, não recomenda tratamento, não prescreve exames e não substitui avaliação médica. O foco está em arquitetura, aprendizado e responsabilidade tecnológica.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">.NET 10</span><span class="tag">Clean Architecture</span><span class="tag">DDD</span><span class="tag">RAG</span><span class="tag">Guardrails</span><span class="tag">Human-in-the-loop</span><span class="tag">LGPD</span>
+                        </div>
+                        <a class="card-link" href="https://github.com/ueidesantos/neurocare-ai-lab" target="_blank" rel="noopener noreferrer">Ver repositório técnico →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" aria-labelledby="skills-title">
+            <div class="shell">
+                <div class="section-head reveal">
+                    <div>
+                        <p class="kicker">~/core-stack</p>
+                        <h2 id="skills-title" class="section-title">Stack backend, arquitetura e IA aplicada.</h2>
+                    </div>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-box reveal">
+                        <h3>Backend</h3>
+                        <p>C#, .NET 4.x, .NET Core, .NET 8, .NET 10, ASP.NET Core, Web API, workers e APIs REST.</p>
+                    </div>
+                    <div class="skill-box reveal">
+                        <h3>Arquitetura</h3>
+                        <p>Arquitetura em camadas, arquitetura hexagonal, DDD, SOLID, microsserviços, CQRS e EDA.</p>
+                    </div>
+                    <div class="skill-box reveal">
+                        <h3>Mensageria</h3>
+                        <p>Kafka, RabbitMQ, AWS MSK, MSMQ, integração assíncrona e desacoplamento de processos críticos.</p>
+                    </div>
+                    <div class="skill-box reveal">
+                        <h3>Cloud & Dados</h3>
+                        <p>Azure, AWS, SQL Server, Oracle, MongoDB, DynamoDB, MySQL, Redis, S3 e Azure Data Factory.</p>
+                    </div>
+                    <div class="skill-box reveal">
+                        <h3>DevOps & Qualidade</h3>
+                        <p>CI/CD, Azure DevOps, testes unitários com xUnit, governança, observabilidade e métricas.</p>
+                    </div>
+                    <div class="skill-box reveal">
+                        <h3>IA aplicada</h3>
+                        <p>LLMOps, RAG, IA generativa, guardrails, privacidade por design, responsible AI e human-in-the-loop.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" aria-labelledby="education-title">
+            <div class="shell">
+                <div class="section-head reveal">
+                    <div>
+                        <p class="kicker">~/education</p>
+                        <h2 id="education-title" class="section-title">Formação técnica contínua, da base à IA.</h2>
+                    </div>
+                </div>
+
+                <div class="education-grid">
+                    <div class="education-item reveal">
+                        <strong>UNIPDS</strong>
+                        <span>Pós-graduação em Engenharia de Software com IA · 2026–2027</span>
+                    </div>
+                    <div class="education-item reveal">
+                        <strong>IBTA</strong>
+                        <span>Pós-graduação em Engenharia de Software (SOA) · 2008–2009</span>
+                    </div>
+                    <div class="education-item reveal">
+                        <strong>FIAP</strong>
+                        <span>Graduação em Sistemas de Informação · 2001–2004</span>
+                    </div>
+                    <div class="education-item reveal">
+                        <strong>Colégio Padre Anchieta</strong>
+                        <span>Técnico em Processamento de Dados · 1998–2000</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="courses" aria-labelledby="courses-title">
+            <div class="shell">
+                <div class="section-head reveal">
+                    <div>
+                        <p class="kicker">~/courses</p>
+                        <h2 id="courses-title" class="section-title">Aprendizado contínuo em engenharia, arquitetura, liderança e gestão.</h2>
+                    </div>
+                    <p class="section-note">Cursos complementares que reforçam minha base técnica, visão de arquitetura, governança e comunicação profissional.</p>
+                </div>
+
+                <div class="courses-board reveal">
+                    <div class="courses-toolbar">
+                        <strong>Formação complementar</strong>
+                        <span>18 cursos listados no CV</span>
+                    </div>
+
+                    <div class="course-list">
+                        <div class="course-item"><div><strong>Desenvolvimento SPA com Angular</strong><span>Desenvolvedor.io</span></div><span class="course-badge">Front-end</span></div>
+                        <div class="course-item"><div><strong>C# Entrada e saída (I/O) com streams</strong><span>Alura</span></div><span class="course-badge">C#</span></div>
+                        <div class="course-item"><div><strong>C# Técnicas de refatoração de código</strong><span>Alura</span></div><span class="course-badge">Clean Code</span></div>
+                        <div class="course-item"><div><strong>C# Collections: listas, arrays, listas ligadas, dicionários e filas</strong><span>Alura</span></div><span class="course-badge">C#</span></div>
+                        <div class="course-item"><div><strong>TOGAF Foundation — nível 1</strong><span>FIAP</span></div><span class="course-badge">Arquitetura</span></div>
+                        <div class="course-item"><div><strong>Planejamento e Gestão de Budget de TI</strong><span>eBusiness</span></div><span class="course-badge">Gestão</span></div>
+                        <div class="course-item"><div><strong>Métricas e Indicadores de TI</strong><span>eBusiness</span></div><span class="course-badge">Governança</span></div>
+                        <div class="course-item"><div><strong>Professional Scrum</strong><span>Lambda3</span></div><span class="course-badge">Agile</span></div>
+                        <div class="course-item"><div><strong>Professional Scrum Master</strong><span>Lambda3</span></div><span class="course-badge">Agile</span></div>
+                        <div class="course-item"><div><strong>ALM Essential</strong><span>Lambda3</span></div><span class="course-badge">DevOps</span></div>
+                        <div class="course-item"><div><strong>Contabilidade para não contadores</strong><span>Paideia Educação · IDORT</span></div><span class="course-badge">Negócio</span></div>
+                        <div class="course-item"><div><strong>Comunicação e Oratória</strong><span>OpenDreams</span></div><span class="course-badge">Comunicação</span></div>
+                        <div class="course-item"><div><strong>Windows Communication Foundation (WCF)</strong><span>Brás Figueiredo</span></div><span class="course-badge">.NET</span></div>
+                        <div class="course-item"><div><strong>Arquitetura da Informação em Projetos WEB</strong><span>Jump Education</span></div><span class="course-badge">Web</span></div>
+                        <div class="course-item"><div><strong>Negociação</strong><span>IDORT</span></div><span class="course-badge">Soft Skill</span></div>
+                        <div class="course-item"><div><strong>Advanced Distributed Application Development</strong><span>Brás Figueiredo</span></div><span class="course-badge">Distribuído</span></div>
+                        <div class="course-item"><div><strong>Microsoft Solution Architectures</strong><span>Brás Figueiredo</span></div><span class="course-badge">Arquitetura</span></div>
+                        <div class="course-item"><div><strong>Liderança Pessoal</strong><span>OpenDreams</span></div><span class="course-badge">Liderança</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quote-section">
+            <div class="shell">
+                <div class="quote-card reveal">
+                    <blockquote>“He who would learn to fly one day must first learn to stand and walk.”</blockquote>
+                    <p>Friedrich Nietzsche</p>
+                    <div class="hero-actions" style="justify-content: center;">
+                        <a class="btn primary" href="assets/cv_ueide.santos_202605_v3.pdf" target="_blank" rel="noopener noreferrer" aria-label="Baixar currículo em PDF de Ueide Santos">Baixar CV em PDF</a>
+                        <a class="btn icon-link" href="https://www.linkedin.com/in/ueide-santos" target="_blank" rel="noopener noreferrer"><svg class="link-icon linkedin" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.53V9H7.1v11.45z" /></svg>LinkedIn</a>
+                        <a class="btn icon-link" href="https://github.com/usjunior" target="_blank" rel="noopener noreferrer"><svg class="link-icon github" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.25c0 5.2 3.36 9.6 8.02 11.16.59.1.8-.26.8-.57v-2.02c-3.26.72-3.95-1.42-3.95-1.42-.53-1.38-1.3-1.75-1.3-1.75-1.06-.74.08-.72.08-.72 1.18.08 1.8 1.24 1.8 1.24 1.04 1.83 2.73 1.3 3.4.99.1-.77.4-1.3.74-1.6-2.6-.3-5.34-1.34-5.34-5.96 0-1.32.46-2.4 1.21-3.24-.12-.3-.53-1.53.12-3.2 0 0 .99-.32 3.25 1.23a11.1 11.1 0 0 1 5.92 0c2.26-1.55 3.25-1.23 3.25-1.23.65 1.67.24 2.9.12 3.2.75.84 1.21 1.92 1.21 3.24 0 4.64-2.75 5.66-5.37 5.95.42.37.79 1.1.79 2.22v3.29c0 .31.21.68.81.57a11.76 11.76 0 0 0 8-11.16A11.5 11.5 0 0 0 12 .5z" /></svg>GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="shell footer-inner">
+            <span>© <span id="year"></span> Ueide Santos</span>
+            <span><a href="mailto:usjunior@gmail.com">Email</a> · <a class="icon-link" href="https://www.linkedin.com/in/ueide-santos" target="_blank" rel="noopener noreferrer"><svg class="link-icon linkedin" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.53V9H7.1v11.45z" /></svg>LinkedIn</a> · <a class="icon-link" href="https://github.com/usjunior" target="_blank" rel="noopener noreferrer"><svg class="link-icon github" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.25c0 5.2 3.36 9.6 8.02 11.16.59.1.8-.26.8-.57v-2.02c-3.26.72-3.95-1.42-3.95-1.42-.53-1.38-1.3-1.75-1.3-1.75-1.06-.74.08-.72.08-.72 1.18.08 1.8 1.24 1.8 1.24 1.04 1.83 2.73 1.3 3.4.99.1-.77.4-1.3.74-1.6-2.6-.3-5.34-1.34-5.34-5.96 0-1.32.46-2.4 1.21-3.24-.12-.3-.53-1.53.12-3.2 0 0 .99-.32 3.25 1.23a11.1 11.1 0 0 1 5.92 0c2.26-1.55 3.25-1.23 3.25-1.23.65 1.67.24 2.9.12 3.2.75.84 1.21 1.92 1.21 3.24 0 4.64-2.75 5.66-5.37 5.95.42.37.79 1.1.79 2.22v3.29c0 .31.21.68.81.57a11.76 11.76 0 0 0 8-11.16A11.5 11.5 0 0 0 12 .5z" /></svg>GitHub</a> · <a href="assets/cv_ueide.santos_202605_v3.pdf" target="_blank" rel="noopener noreferrer">PDF</a></span>
         </div>
+    </footer>
 
-        <div class="story-panel reveal">
-          <p>
-            Minha trajetória nasceu na engenharia de software backend e amadureceu em ambientes onde estabilidade, segurança, integração e clareza arquitetural fazem diferença. Ao longo da carreira, atuei em setores como saúde, bancos e fintechs, evoluindo APIs, sistemas legados, integrações, mensageria e plataformas corporativas.
-          </p>
-          <br />
-          <p>
-            A experiência na Unimed FESP consolidou uma visão mais ampla: tecnologia como operação, governança, entrega, indicadores, arquitetura e impacto no negócio. Nos últimos anos, aprofundei minha atuação em .NET, arquitetura hexagonal, microsserviços, Kafka, RabbitMQ, cloud e padrões de design aplicados a sistemas críticos.
-          </p>
-          <br />
-          <p>
-            Hoje, minha evolução está direcionada para IA aplicada. Estou cursando pós-graduação em Engenharia de Software com IA e desenvolvendo projetos que unem backend moderno, IA generativa, guardrails, observabilidade, LGPD, privacidade por design e responsabilidade técnica.
-          </p>
-        </div>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-        <div class="compass-grid reveal">
-          <article class="compass-card">
-            <span>01</span>
-            <strong>Base que sustenta voo</strong>
-            <p>Backend, arquitetura e sistemas críticos como fundação para decisões técnicas maduras.</p>
-          </article>
-          <article class="compass-card">
-            <span>02</span>
-            <strong>Liderança com contexto</strong>
-            <p>Experiência conectando tecnologia, negócio, governança, entrega e pessoas.</p>
-          </article>
-          <article class="compass-card">
-            <span>03</span>
-            <strong>IA com responsabilidade</strong>
-            <p>Aplicação de IA generativa com guardrails, privacidade, observabilidade e propósito real.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
 
-    <section id="experience">
-      <div class="shell">
-        <div class="section-head reveal">
-          <div>
-            <p class="kicker">Experiência profissional</p>
-            <h2 class="section-title">De sistemas corporativos a plataformas financeiras críticas.</h2>
-          </div>
-          <p class="section-note">Experiências organizadas em narrativa, não apenas em cargos.</p>
-        </div>
-
-        <div class="timeline">
-          <article class="role reveal">
-            <div class="role-meta">
-              <span class="role-company">GFT · Banco BMG</span>
-              <h3>Engenheiro de Software Backend .NET Core</h3>
-              <p class="period">Set 2024 – Jun 2026</p>
-            </div>
-            <div class="role-body">
-              <p>
-                Atuação na modernização da esteira de pagamentos de um grande banco, contribuindo para escalabilidade, resiliência, desacoplamento de processos críticos e integração entre múltiplos sistemas.
-              </p>
-              <ul class="bullets">
-                <li>Evolução de APIs REST em .NET 10.</li>
-                <li>Integração assíncrona via Kafka, RabbitMQ e AWS MSK.</li>
-                <li>Uso de arquitetura hexagonal para isolamento de domínio.</li>
-                <li>Suporte a fluxos orquestrados com Camunda.</li>
-                <li>Liderança técnica na concepção do Worker de Recálculo de Valores para Empréstimos.</li>
-                <li>Aplicação de SOLID e patterns como Strategy, Abstract Factory, Factory Method, Template Method e Specification.</li>
-              </ul>
-              <div class="tags">
-                <span class="tag">.NET 10</span><span class="tag">Kafka</span><span class="tag">RabbitMQ</span><span class="tag">MSK</span><span class="tag">MongoDB</span><span class="tag">Oracle</span><span class="tag">Redis</span><span class="tag">Camunda</span><span class="tag">Arquitetura Hexagonal</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="role reveal">
-            <div class="role-meta">
-              <span class="role-company">Verity · InterPlayers</span>
-              <h3>Engenheiro de Software Backend .NET Core</h3>
-              <p class="period">Jul 2021 – Jun 2024</p>
-            </div>
-            <div class="role-body">
-              <p>
-                Atuação na evolução do backend do aplicativo Healthy, suportando jornadas de onboarding, e-commerce e billing, com impacto direto na experiência do usuário e no negócio.
-              </p>
-              <ul class="bullets">
-                <li>Desenvolvimento e manutenção de APIs REST.</li>
-                <li>Evolução de arquitetura para maior escalabilidade.</li>
-                <li>Integração com serviços Azure e pipelines de dados.</li>
-                <li>Implementação de testes unitários para aumento de confiabilidade.</li>
-              </ul>
-              <div class="tags">
-                <span class="tag">C#</span><span class="tag">.NET 8</span><span class="tag">SQL Server</span><span class="tag">Redis</span><span class="tag">RabbitMQ</span><span class="tag">Azure</span><span class="tag">Azure Data Factory</span><span class="tag">xUnit</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="role reveal">
-            <div class="role-meta">
-              <span class="role-company">Altran · BTG Pactual</span>
-              <h3>Engenheiro de Software Backend .NET Core</h3>
-              <p class="period">Nov 2020 – Jul 2021</p>
-            </div>
-            <div class="role-body">
-              <p>
-                Experiência em ambiente financeiro, atuando com backend .NET em contexto de alta exigência técnica, integração e qualidade de entrega.
-              </p>
-              <div class="tags">
-                <span class="tag">Backend</span><span class="tag">.NET Core</span><span class="tag">Financeiro</span><span class="tag">APIs</span><span class="tag">Integrações</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="role reveal">
-            <div class="role-meta">
-              <span class="role-company">Repom · Edenred Brasil</span>
-              <h3>Desenvolvedor Backend</h3>
-              <p class="period">Mar 2020 – Nov 2020</p>
-            </div>
-            <div class="role-body">
-              <p>
-                Desenvolvimento e análise de sistemas com plataforma Microsoft, APIs, mensageria e infraestrutura moderna para aplicações corporativas.
-              </p>
-              <div class="tags">
-                <span class="tag">ASP.NET Core</span><span class="tag">Web API</span><span class="tag">C#</span><span class="tag">SQL Server</span><span class="tag">RabbitMQ</span><span class="tag">Kubernetes</span><span class="tag">Azure</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="role reveal">
-            <div class="role-meta">
-              <span class="role-company">Unimed FESP</span>
-              <h3>Analista Sr. · Líder Técnico</h3>
-              <p class="period">Set 2007 – Jan 2018</p>
-            </div>
-            <div class="role-body">
-              <p>
-                Uma das fases mais formadoras da carreira: liderança técnica, arquitetura corporativa, governança de processos, sustentação de sistemas críticos e alinhamento entre tecnologia e negócio no setor de saúde suplementar.
-              </p>
-              <ul class="bullets">
-                <li>Liderança técnica e referência estratégica para equipes de Negócios de TI, QA e Desenvolvimento.</li>
-                <li>Definição, implantação e governança de processos apoiados por RUP, PMBOK, ITIL, COBIT, SCRUM, Lean IT e DevOps.</li>
-                <li>Acompanhamento de indicadores financeiros, métricas de produtividade e KPIs de sistemas críticos.</li>
-                <li>Definição de arquitetura corporativa orientada a serviços.</li>
-                <li>Atuação em sistemas regulados pelo padrão TISS da ANS.</li>
-                <li>Participação em soluções comercializadas para outras Unimeds, como o Consultório Online.</li>
-              </ul>
-              <div class="tags">
-                <span class="tag">Liderança Técnica</span><span class="tag">SOA</span><span class="tag">Governança</span><span class="tag">Saúde</span><span class="tag">TISS</span><span class="tag">WCF</span><span class="tag">SQL Server</span><span class="tag">SharePoint</span><span class="tag">Azure DevOps</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="role reveal">
-            <div class="role-meta">
-              <span class="role-company">Primeira base técnica</span>
-              <h3>Sage Brasil · Dotz Marketing · Rapp Collins</h3>
-              <p class="period">1999 – 2007</p>
-            </div>
-            <div class="role-body">
-              <p>
-                Construção da base prática em desenvolvimento web e plataforma Microsoft, com C#, VB.NET, ASP.NET, ADO.NET e SQL Server. Essa fase consolidou disciplina técnica, raciocínio de manutenção e evolução de sistemas corporativos.
-              </p>
-              <div class="tags">
-                <span class="tag">C#</span><span class="tag">VB.NET</span><span class="tag">ASP.NET</span><span class="tag">ADO.NET</span><span class="tag">SQL Server</span><span class="tag">Web Systems</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="shell">
-        <div class="section-head reveal">
-          <div>
-            <p class="kicker">Projeto em destaque</p>
-            <h2 class="section-title">IA aplicada com responsabilidade técnica.</h2>
-          </div>
-          <p class="section-note">Projeto educacional desenvolvido durante a pós-graduação em Engenharia de Software com IA.</p>
-        </div>
-
-        <div class="grid-2">
-          <article class="card reveal">
-            <p class="kicker">Neuro Care</p>
-            <h3>Cognitive Report Generator for Consultation</h3>
-            <p>
-              Laboratório educacional de IA generativa aplicada à saúde digital. O projeto simula a organização de relatos cognitivos, funcionais e comportamentais em um relatório não diagnóstico para conversa com profissional de saúde.
-            </p>
-            <ul class="bullets">
-              <li>Aplica regras determinísticas para classificação de prioridade de atenção.</li>
-              <li>Mantém a IA fora da decisão clínica.</li>
-              <li>Explora guardrails, LGPD, CFM, auditoria, observabilidade, structured output, RAG e human-in-the-loop.</li>
-            </ul>
-            <a class="card-link" href="https://ueidesantos.github.io/neurocare-ai-lab" target="_blank" rel="noopener noreferrer">Acessar landing page →</a>
-          </article>
-
-          <article class="card reveal">
-            <p class="kicker">Princípio do projeto</p>
-            <h3>IA como apoio, não como autoridade clínica.</h3>
-            <p>
-              O Neuro Care não diagnostica, não calcula risco individual, não recomenda tratamento, não prescreve exames e não substitui avaliação médica. O foco está em arquitetura, aprendizado e responsabilidade tecnológica.
-            </p>
-            <div class="tags">
-              <span class="tag">.NET 10</span><span class="tag">Clean Architecture</span><span class="tag">DDD</span><span class="tag">RAG</span><span class="tag">Guardrails</span><span class="tag">Human-in-the-loop</span><span class="tag">LGPD</span>
-            </div>
-            <a class="card-link" href="https://github.com/ueidesantos/neurocare-ai-lab" target="_blank" rel="noopener noreferrer">Ver repositório técnico →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="shell">
-        <div class="section-head reveal">
-          <div>
-            <p class="kicker">Competências técnicas</p>
-            <h2 class="section-title">Stack backend, arquitetura e IA aplicada.</h2>
-          </div>
-        </div>
-
-        <div class="skills-grid">
-          <div class="skill-box reveal">
-            <h3>Backend</h3>
-            <p>C#, .NET 4.x, .NET Core, .NET 8, .NET 10, ASP.NET Core, Web API, workers e APIs REST.</p>
-          </div>
-          <div class="skill-box reveal">
-            <h3>Arquitetura</h3>
-            <p>Arquitetura em camadas, arquitetura hexagonal, DDD, SOLID, microsserviços, CQRS e EDA.</p>
-          </div>
-          <div class="skill-box reveal">
-            <h3>Mensageria</h3>
-            <p>Kafka, RabbitMQ, AWS MSK, MSMQ, integração assíncrona e desacoplamento de processos críticos.</p>
-          </div>
-          <div class="skill-box reveal">
-            <h3>Cloud & Dados</h3>
-            <p>Azure, AWS, SQL Server, Oracle, MongoDB, DynamoDB, MySQL, Redis, S3 e Azure Data Factory.</p>
-          </div>
-          <div class="skill-box reveal">
-            <h3>DevOps & Qualidade</h3>
-            <p>CI/CD, Azure DevOps, testes unitários com xUnit, governança, observabilidade e métricas.</p>
-          </div>
-          <div class="skill-box reveal">
-            <h3>IA aplicada</h3>
-            <p>LLMOps, RAG, IA generativa, guardrails, privacidade por design, responsible AI e human-in-the-loop.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="education">
-      <div class="shell">
-        <div class="section-head reveal">
-          <div>
-            <p class="kicker">Formação acadêmica</p>
-            <h2 class="section-title">Formação técnica contínua, da base à IA.</h2>
-          </div>
-        </div>
-
-        <div class="education-grid">
-          <div class="education-item reveal">
-            <strong>UNIPDS</strong>
-            <span>Pós-graduação em Engenharia de Software com IA · 2026–2027</span>
-          </div>
-          <div class="education-item reveal">
-            <strong>IBTA</strong>
-            <span>Pós-graduação em Engenharia de Software (SOA) · 2008–2009</span>
-          </div>
-          <div class="education-item reveal">
-            <strong>FIAP</strong>
-            <span>Graduação em Sistemas de Informação · 2001–2004</span>
-          </div>
-          <div class="education-item reveal">
-            <strong>Colégio Padre Anchieta</strong>
-            <span>Técnico em Processamento de Dados · 1998–2000</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="courses">
-      <div class="shell">
-        <div class="section-head reveal">
-          <div>
-            <p class="kicker">Cursos extracurriculares</p>
-            <h2 class="section-title">Aprendizado contínuo em engenharia, arquitetura, liderança e gestão.</h2>
-          </div>
-          <p class="section-note">Cursos complementares que reforçam minha base técnica, visão de arquitetura, governança e comunicação profissional.</p>
-        </div>
-
-        <div class="courses-board reveal">
-          <div class="courses-toolbar">
-            <strong>Formação complementar</strong>
-            <span>18 cursos listados no CV</span>
-          </div>
-
-          <div class="course-list">
-            <div class="course-item"><div><strong>Desenvolvimento SPA com Angular</strong><span>Desenvolvedor.io</span></div><span class="course-badge">Front-end</span></div>
-            <div class="course-item"><div><strong>C# Entrada e saída (I/O) com streams</strong><span>Alura</span></div><span class="course-badge">C#</span></div>
-            <div class="course-item"><div><strong>C# Técnicas de refatoração de código</strong><span>Alura</span></div><span class="course-badge">Clean Code</span></div>
-            <div class="course-item"><div><strong>C# Collections: listas, arrays, listas ligadas, dicionários e filas</strong><span>Alura</span></div><span class="course-badge">C#</span></div>
-            <div class="course-item"><div><strong>TOGAF Foundation — nível 1</strong><span>FIAP</span></div><span class="course-badge">Arquitetura</span></div>
-            <div class="course-item"><div><strong>Planejamento e Gestão de Budget de TI</strong><span>eBusiness</span></div><span class="course-badge">Gestão</span></div>
-            <div class="course-item"><div><strong>Métricas e Indicadores de TI</strong><span>eBusiness</span></div><span class="course-badge">Governança</span></div>
-            <div class="course-item"><div><strong>Professional Scrum</strong><span>Lambda3</span></div><span class="course-badge">Agile</span></div>
-            <div class="course-item"><div><strong>Professional Scrum Master</strong><span>Lambda3</span></div><span class="course-badge">Agile</span></div>
-            <div class="course-item"><div><strong>ALM Essential</strong><span>Lambda3</span></div><span class="course-badge">DevOps</span></div>
-            <div class="course-item"><div><strong>Contabilidade para não contadores</strong><span>Paideia Educação · IDORT</span></div><span class="course-badge">Negócio</span></div>
-            <div class="course-item"><div><strong>Comunicação e Oratória</strong><span>OpenDreams</span></div><span class="course-badge">Comunicação</span></div>
-            <div class="course-item"><div><strong>Windows Communication Foundation (WCF)</strong><span>Brás Figueiredo</span></div><span class="course-badge">.NET</span></div>
-            <div class="course-item"><div><strong>Arquitetura da Informação em Projetos WEB</strong><span>Jump Education</span></div><span class="course-badge">Web</span></div>
-            <div class="course-item"><div><strong>Negociação</strong><span>IDORT</span></div><span class="course-badge">Soft Skill</span></div>
-            <div class="course-item"><div><strong>Advanced Distributed Application Development</strong><span>Brás Figueiredo</span></div><span class="course-badge">Distribuído</span></div>
-            <div class="course-item"><div><strong>Microsoft Solution Architectures</strong><span>Brás Figueiredo</span></div><span class="course-badge">Arquitetura</span></div>
-            <div class="course-item"><div><strong>Liderança Pessoal</strong><span>OpenDreams</span></div><span class="course-badge">Liderança</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="quote-section">
-      <div class="shell">
-        <div class="quote-card reveal">
-          <blockquote>“He who would learn to fly one day must first learn to stand and walk.”</blockquote>
-          <p>Friedrich Nietzsche</p>
-          <div class="hero-actions" style="justify-content: center;">
-            <a class="btn primary" href="assets/cv_ueide.santos_202605_v3.pdf" target="_blank" rel="noopener noreferrer">Baixar CV em PDF</a>
-            <a class="btn icon-link" href="https://www.linkedin.com/in/ueide-santos" target="_blank" rel="noopener noreferrer"><svg class="link-icon linkedin" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.53V9H7.1v11.45z"/></svg>LinkedIn</a>
-            <a class="btn icon-link" href="https://github.com/usjunior" target="_blank" rel="noopener noreferrer"><svg class="link-icon github" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.25c0 5.2 3.36 9.6 8.02 11.16.59.1.8-.26.8-.57v-2.02c-3.26.72-3.95-1.42-3.95-1.42-.53-1.38-1.3-1.75-1.3-1.75-1.06-.74.08-.72.08-.72 1.18.08 1.8 1.24 1.8 1.24 1.04 1.83 2.73 1.3 3.4.99.1-.77.4-1.3.74-1.6-2.6-.3-5.34-1.34-5.34-5.96 0-1.32.46-2.4 1.21-3.24-.12-.3-.53-1.53.12-3.2 0 0 .99-.32 3.25 1.23a11.1 11.1 0 0 1 5.92 0c2.26-1.55 3.25-1.23 3.25-1.23.65 1.67.24 2.9.12 3.2.75.84 1.21 1.92 1.21 3.24 0 4.64-2.75 5.66-5.37 5.95.42.37.79 1.1.79 2.22v3.29c0 .31.21.68.81.57a11.76 11.76 0 0 0 8-11.16A11.5 11.5 0 0 0 12 .5z"/></svg>GitHub</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="shell footer-inner">
-      <span>© <span id="year"></span> Ueide Santos</span>
-      <span><a href="mailto:usjunior@gmail.com">Email</a> · <a class="icon-link" href="https://www.linkedin.com/in/ueide-santos" target="_blank" rel="noopener noreferrer"><svg class="link-icon linkedin" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.53V9H7.1v11.45z"/></svg>LinkedIn</a> · <a class="icon-link" href="https://github.com/usjunior" target="_blank" rel="noopener noreferrer"><svg class="link-icon github" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.25c0 5.2 3.36 9.6 8.02 11.16.59.1.8-.26.8-.57v-2.02c-3.26.72-3.95-1.42-3.95-1.42-.53-1.38-1.3-1.75-1.3-1.75-1.06-.74.08-.72.08-.72 1.18.08 1.8 1.24 1.8 1.24 1.04 1.83 2.73 1.3 3.4.99.1-.77.4-1.3.74-1.6-2.6-.3-5.34-1.34-5.34-5.96 0-1.32.46-2.4 1.21-3.24-.12-.3-.53-1.53.12-3.2 0 0 .99-.32 3.25 1.23a11.1 11.1 0 0 1 5.92 0c2.26-1.55 3.25-1.23 3.25-1.23.65 1.67.24 2.9.12 3.2.75.84 1.21 1.92 1.21 3.24 0 4.64-2.75 5.66-5.37 5.95.42.37.79 1.1.79 2.22v3.29c0 .31.21.68.81.57a11.76 11.76 0 0 0 8-11.16A11.5 11.5 0 0 0 12 .5z"/></svg>GitHub</a> · <a href="assets/cv_ueide.santos_202605_v3.pdf" target="_blank" rel="noopener noreferrer">PDF</a></span>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
-  </script>
+        document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+    </script>
 </body>
 </html>
