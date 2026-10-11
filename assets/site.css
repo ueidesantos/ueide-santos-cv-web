@@ -170,3 +170,10 @@ footer { padding: 28px 0; border-top: 1px solid var(--border); font-size: 12px; 
   .course-item .course-badge { color: #714119; }
   .reveal { opacity: 1 !important; transform: none !important; }
 }
+
+/* AI-assisted engineering, emphasized within the current experience. */
+.role-ai { border-color: #6674a4; background: linear-gradient(120deg, #1b2541, #111d34 65%); }
+.role-focus { margin-top: 20px; color: var(--cyan); font-size: 13px; font-weight: 650; }
+.ai-workflow { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; margin: 22px 0; padding: 14px 16px; border: 1px solid #485979; border-radius: 8px; color: #d5ddff; background: #14243b; font-size: 12px; font-weight: 650; }
+.ai-workflow span[aria-hidden] { color: var(--amber); }
+@media print { .role-ai,.ai-workflow { background: white; color: #111827; border-color: #cbd5e1; } .role-focus { color: #164b72; } }

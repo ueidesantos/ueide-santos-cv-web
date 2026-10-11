@@ -51,12 +51,13 @@ section('Perfil profissional')
 add('Desenvolvedor Backend .NET com experiência em sistemas críticos para bancos, fintechs e saúde. Trajetória que combina engenharia de software, liderança técnica, arquitetura moderna e integração de sistemas. Atuação com APIs, microsserviços, arquitetura hexagonal, Kafka, RabbitMQ e cloud.')
 add('Pós-graduando em Engenharia de Software com IA, com foco em IA generativa, RAG, guardrails, observabilidade e privacidade por design.')
 section('Experiência profissional')
-role('Banco Safra','Engenharia de software','Atual','Desenvolvimento de soluções corporativas em ambiente bancário, conectando entendimento das regras de negócio, especificação e implementação.',[
-'Desenvolvimento de front e backend, com atenção à consistência entre interface, regras e integrações.',
-'Organização do trabalho com desenvolvimento orientado por especificações (SDD), traduzindo necessidades em tarefas e verificações.',
-'Aplicação de SOLID, Clean Architecture e padrões de projeto para separar responsabilidades e facilitar a evolução do código.',
-'Instrumentação e análise do comportamento da aplicação com observabilidade e métricas técnicas.'
-])
+role('Banco Safra','Engenharia de software','Atual','Desenvolvimento de soluções corporativas em ambiente bancário com IA integrada ao processo de engenharia: do refinamento de requisitos à implementação e revisão. Combino desenvolvimento orientado por especificações (SDD), agentes de IA e análise técnica para transformar demandas em entregas verificáveis, mantendo a responsabilidade pelas decisões de arquitetura e pela validação do código.',[
+'Uso de IA no refinamento de requisitos, detalhamento de especificações e decomposição de demandas em tarefas com critérios de aceite.',
+'Coordenação de agentes de IA no apoio ao planejamento e à implementação de front e backend, orientando contexto, escopo, contratos e padrões de código.',
+'Revisão crítica das propostas e do código gerado, com apoio de IA para explorar casos de teste, identificar inconsistências e conduzir ciclos de correção e verificação.',
+'Aplicação de SOLID, Clean Architecture e padrões de projeto para preservar separação de responsabilidades e coerência arquitetural durante a evolução assistida por IA.',
+'Integração entre interface, regras e serviços, com observabilidade e métricas técnicas para acompanhar o comportamento da aplicação.'
+], 'Desenvolvimento assistido por IA, agentes de IA, SDD, revisão de código, Clean Architecture')
 role('GFT · Banco BMG','Engenheiro de Software Backend .NET Core','Set 2024 - Jun 2026','Modernização da esteira de pagamentos, contribuindo para escalabilidade, resiliência e desacoplamento de processos críticos.',[
 'Evolução de APIs REST em .NET 10 e integração assíncrona via Kafka, RabbitMQ e AWS MSK.',
 'Arquitetura hexagonal para isolamento de domínio e suporte a fluxos orquestrados com Camunda.',
