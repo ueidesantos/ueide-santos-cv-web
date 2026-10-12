@@ -1,10 +1,10 @@
-![Ueide Santos — Backend .NET, arquitetura e IA aplicada](assets/identity-cover.jpg)
+![Ueide Santos — engenharia de software, sistemas críticos, arquitetura e IA aplicada](assets/identity-cover.jpg)
 
 # Ueide Santos — currículo web
 
 [Visite o currículo](https://ueidesantos.github.io/ueide-santos-cv-web/) · [Baixe o PDF](assets/ueide-santos-cv.pdf)
 
-Site estático em HTML/CSS, com conteúdo acessível sem JavaScript. Identidade baseada na capa original: navy, ciano, violeta e âmbar. Experiências, projetos públicos, formação e contato.
+Site estático em HTML/CSS, com conteúdo acessível sem JavaScript. Identidade baseada na capa original: navy, ciano, violeta e âmbar. Resumo, projetos públicos, experiências, competências, formação, formação complementar selecionada e contato.
 
 ## Validar e publicar
 

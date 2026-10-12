@@ -24,3 +24,20 @@ Safra: descrição geral de engenharia de software, sem detalhes de sistemas, cl
 Revisor independente: Edge em 320, 390, 768, 1024 e 1440 px, sem overflow nem imagens quebradas; conteúdo visível sem JavaScript; teclado e âncoras aprovados; impressão sem blocos invisíveis ou texto claro em fundo branco. PDF renderizado e texto conferido. Pipeline valida links locais, IDs, metadados, imagens e PDF; publica apenas index e assets referenciados.
 
 As melhorias de marketing são editoriais; não há promessa de aumento de conversão nem coleta de dados. Publicação precisa de execução verde do workflow e verificação do site público.
+
+## Reposicionamento editorial — 2026-10-11
+
+Objetivo: comunicar engenharia de software em sistemas críticos, arquitetura distribuída, liderança técnica com atuação no código e IA aplicada à engenharia, sem novo cargo, métrica, projeto ou informação corporativa.
+
+| Decisão | Motivo |
+|---|---|
+| Title, description, OG, Twitter e JSON-LD alinhados; `jobTitle` "Engenheiro de Software" | Cada camada contava "Backend Developer .NET"; .NET segue em description, knowsAbout e conteúdo |
+| Hero: "Engenharia de software · desde 1999" e "Sistemas críticos, arquitetura distribuída e IA aplicada à engenharia" | Eleva a abstração; "desde 1999" evita manutenção anual |
+| Cards do resumo: Safra (IA na engenharia), BMG (pagamentos), Unimed (liderança e governança) | A experiência real aparece antes dos laboratórios |
+| Projetos públicos antes da timeline | Prova de trabalho visível sem rolar sete experiências; ressalvas de limites preservadas |
+| Competências por capacidade, tecnologia como segunda linha | Reduz inventário de stack; liderança e governança ganham bloco próprio |
+| Formação complementar: 8 de 18 cursos, em três grupos | Cursos básicos de C#, Angular e WCF saem do destaque; lista completa preservada no histórico do Git |
+| CTA: sistemas críticos, arquitetura e IA aplicada | Mesmo posicionamento do hero, em tom de conversa |
+| PDF gerado pelo mesmo `build_resume.py`, com o mesmo conteúdo | Uma única narrativa entre página e currículo |
+
+Não alterados: identidade visual, paleta, tipografia, fotografia, panorama, textos da experiência Safra, cargos, datas e ressalvas dos projetos.
